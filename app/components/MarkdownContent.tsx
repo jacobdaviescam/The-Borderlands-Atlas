@@ -3,38 +3,104 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { motion } from 'framer-motion';
+import { Components } from 'react-markdown';
 
 interface MarkdownContentProps {
   content: string;
 }
 
 export default function MarkdownContent({ content }: MarkdownContentProps) {
+  const components: Components = {
+    h1: ({ children }) => (
+      <h1 className="text-4xl font-semibold text-burgundy mb-6 mt-8">
+        {children}
+      </h1>
+    ),
+    h2: ({ children }) => (
+      <h2 className="text-3xl font-semibold text-burgundy mb-4 mt-8">
+        {children}
+      </h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="text-2xl font-semibold text-burgundy mb-3 mt-6">
+        {children}
+      </h3>
+    ),
+    h4: ({ children }) => (
+      <h4 className="text-xl font-semibold text-burgundy mb-2 mt-4">
+        {children}
+      </h4>
+    ),
+    p: ({ children }) => (
+      <p className="text-lg text-deep-brown leading-relaxed mb-6">
+        {children}
+      </p>
+    ),
+    a: ({ href, children }) => (
+      <a
+        href={href}
+        className="text-brass no-underline hover:text-burgundy transition-colors border-b border-brass/30 hover:border-burgundy"
+      >
+        {children}
+      </a>
+    ),
+    strong: ({ children }) => (
+      <strong className="text-burgundy font-semibold">
+        {children}
+      </strong>
+    ),
+    em: ({ children }) => (
+      <em className="text-text-secondary italic">
+        {children}
+      </em>
+    ),
+    blockquote: ({ children }) => (
+      <blockquote className="border-l-4 border-gold pl-6 italic text-text-secondary my-6">
+        {children}
+      </blockquote>
+    ),
+    ul: ({ children }) => (
+      <ul className="list-disc pl-6 my-4 space-y-2">
+        {children}
+      </ul>
+    ),
+    ol: ({ children }) => (
+      <ol className="list-decimal pl-6 my-4 space-y-2">
+        {children}
+      </ol>
+    ),
+    li: ({ children }) => (
+      <li className="text-lg text-deep-brown">
+        {children}
+      </li>
+    ),
+    code: ({ inline, children }) => (
+      inline ? (
+        <code className="bg-parchment-dark px-2 py-1 rounded text-burgundy font-mono text-base">
+          {children}
+        </code>
+      ) : (
+        <code className="block bg-parchment-dark p-4 rounded border border-gold/20 text-burgundy font-mono text-sm overflow-x-auto my-4">
+          {children}
+        </code>
+      )
+    ),
+    hr: () => (
+      <hr className="border-t border-gold/30 my-8" />
+    ),
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="prose prose-lg max-w-none
-        prose-headings:font-semibold prose-headings:text-burgundy
-        prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-8
-        prose-h2:text-3xl prose-h2:mb-4 prose-h2:mt-8
-        prose-h3:text-2xl prose-h3:mb-3 prose-h3:mt-6
-        prose-p:text-deep-brown prose-p:leading-relaxed prose-p:mb-4
-        prose-a:text-brass prose-a:no-underline hover:prose-a:text-burgundy prose-a:transition-colors
-        prose-strong:text-burgundy prose-strong:font-semibold
-        prose-em:text-text-secondary prose-em:italic
-        prose-blockquote:border-l-2 prose-blockquote:border-gold prose-blockquote:pl-6 
-        prose-blockquote:italic prose-blockquote:text-text-secondary prose-blockquote:my-6
-        prose-code:bg-parchment-dark prose-code:px-2 prose-code:py-1 prose-code:rounded 
-        prose-code:text-burgundy prose-code:font-mono prose-code:text-base
-        prose-pre:bg-parchment-dark prose-pre:border prose-pre:border-gold/20
-        prose-ul:list-disc prose-ul:pl-6 prose-ul:my-4
-        prose-ol:list-decimal prose-ol:pl-6 prose-ol:my-4
-        prose-li:text-deep-brown prose-li:mb-2
-        prose-hr:border-gold/30 prose-hr:my-8
-        prose-img:rounded-lg prose-img:shadow-lg"
+      className="markdown-content"
     >
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+      <ReactMarkdown 
+        remarkPlugins={[remarkGfm]}
+        components={components}
+      >
         {content}
       </ReactMarkdown>
     </motion.div>
