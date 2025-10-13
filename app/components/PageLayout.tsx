@@ -16,6 +16,48 @@ export default function PageLayout({ children, title, subtitle }: PageLayoutProp
       {/* Subtle corner ornaments on inner pages */}
       <TopBorder />
       
+      {/* Left page edge decoration */}
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 0.6, x: 0 }}
+        transition={{ delay: 0.3, duration: 1 }}
+        className="hidden lg:block fixed left-4 top-24 bottom-24 w-12"
+      >
+        <svg viewBox="0 0 48 800" fill="none" className="w-full h-full" preserveAspectRatio="none">
+          <path
+            d="M 36 0 Q 24 200 36 400 Q 48 600 36 800"
+            stroke="currentColor"
+            strokeWidth="2"
+            className="text-forest"
+            opacity="0.8"
+            fill="none"
+          />
+          <path d="M 24 200 Q 18 195 22 188" fill="currentColor" className="text-forest" opacity="0.7" />
+          <path d="M 48 600 Q 54 595 50 588" fill="currentColor" className="text-forest" opacity="0.7" />
+        </svg>
+      </motion.div>
+
+      {/* Right page edge decoration */}
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 0.6, x: 0 }}
+        transition={{ delay: 0.3, duration: 1 }}
+        className="hidden lg:block fixed right-4 top-24 bottom-24 w-12"
+      >
+        <svg viewBox="0 0 48 800" fill="none" className="w-full h-full" preserveAspectRatio="none">
+          <path
+            d="M 12 0 Q 24 200 12 400 Q 0 600 12 800"
+            stroke="currentColor"
+            strokeWidth="2"
+            className="text-forest"
+            opacity="0.8"
+            fill="none"
+          />
+          <path d="M 24 200 Q 30 195 26 188" fill="currentColor" className="text-forest" opacity="0.7" />
+          <path d="M 0 600 Q -6 595 -2 588" fill="currentColor" className="text-forest" opacity="0.7" />
+        </svg>
+      </motion.div>
+      
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-16">
         {/* Back to home link */}
         <motion.div

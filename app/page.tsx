@@ -9,14 +9,70 @@ export default function Home() {
       {/* Ornamental Corner Decorations */}
       <CornerOrnaments />
       
-      {/* Main Content - Clean Center */}
+      {/* Main Content - With Edge Decorations */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl text-center space-y-8"
+          className="max-w-4xl text-center space-y-8 relative"
         >
+          {/* Left edge vine decoration */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 0.7, x: 0 }}
+            transition={{ delay: 0.6, duration: 1 }}
+            className="hidden md:block absolute -left-20 top-0 bottom-0 w-16"
+          >
+            <svg viewBox="0 0 80 800" fill="none" className="w-full h-full" preserveAspectRatio="none">
+              <path
+                d="M 60 0 Q 40 100 60 200 Q 80 300 60 400 Q 40 500 60 600 Q 80 700 60 800"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                className="text-forest"
+                opacity="0.85"
+                fill="none"
+              />
+              {/* Leaves along the vine */}
+              <path d="M 40 100 Q 30 95 35 85" fill="currentColor" className="text-forest" opacity="0.75" />
+              <path d="M 80 300 Q 90 295 85 285" fill="currentColor" className="text-forest" opacity="0.75" />
+              <path d="M 40 500 Q 30 495 35 485" fill="currentColor" className="text-forest" opacity="0.75" />
+              <path d="M 80 700 Q 90 695 85 685" fill="currentColor" className="text-forest" opacity="0.75" />
+              {/* Book spine */}
+              <rect x="5" y="50" width="10" height="100" fill="currentColor" className="text-burgundy" opacity="0.4" />
+              <line x1="5" y1="80" x2="15" y2="80" stroke="currentColor" className="text-gold" strokeWidth="1" opacity="0.7" />
+            </svg>
+          </motion.div>
+
+          {/* Right edge vine decoration with wine glass */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 0.7, x: 0 }}
+            transition={{ delay: 0.6, duration: 1 }}
+            className="hidden md:block absolute -right-20 top-0 bottom-0 w-16"
+          >
+            <svg viewBox="0 0 80 800" fill="none" className="w-full h-full" preserveAspectRatio="none">
+              <path
+                d="M 20 0 Q 40 100 20 200 Q 0 300 20 400 Q 40 500 20 600 Q 0 700 20 800"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                className="text-forest"
+                opacity="0.85"
+                fill="none"
+              />
+              {/* Leaves */}
+              <path d="M 40 100 Q 50 95 45 85" fill="currentColor" className="text-forest" opacity="0.75" />
+              <path d="M 0 300 Q -10 295 -5 285" fill="currentColor" className="text-forest" opacity="0.75" />
+              <path d="M 40 500 Q 50 495 45 485" fill="currentColor" className="text-forest" opacity="0.75" />
+              {/* Wine glass */}
+              <g transform="translate(10, 150)" opacity="0.7">
+                <ellipse cx="10" cy="6" rx="9" ry="4" stroke="currentColor" className="text-burgundy" strokeWidth="1.5" fill="none" />
+                <path d="M 1 6 L 6 18 L 14 18 L 19 6" stroke="currentColor" className="text-burgundy" strokeWidth="1.5" fill="none" />
+                <line x1="3" y1="18" x2="17" y2="18" stroke="currentColor" className="text-burgundy" strokeWidth="2" />
+                <ellipse cx="10" cy="6" rx="7" ry="3" fill="currentColor" className="text-burgundy" opacity="0.3" />
+              </g>
+            </svg>
+          </motion.div>
           {/* Title with decorative divider */}
           <div className="space-y-4">
             <motion.h1 

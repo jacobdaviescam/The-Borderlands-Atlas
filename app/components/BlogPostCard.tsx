@@ -15,8 +15,27 @@ export default function BlogPostCard({ post, index }: BlogPostCardProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
-      className="group border-l-2 border-gold/30 hover:border-gold transition-colors duration-300 pl-6 py-4"
+      className="group relative border-l-4 border-gold/50 hover:border-gold transition-colors duration-300 pl-8 py-6 pr-8"
     >
+      {/* Botanical accent on left */}
+      <div className="absolute -left-2 top-4 text-forest opacity-70">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M 8 2 Q 4 6 8 10 Q 12 6 8 2" />
+        </svg>
+      </div>
+      
+      {/* Right edge vine */}
+      <div className="absolute -right-4 top-0 bottom-0 w-4 opacity-50 group-hover:opacity-70 transition-opacity">
+        <svg viewBox="0 0 16 100" fill="none" className="w-full h-full" preserveAspectRatio="none">
+          <path
+            d="M 8 0 Q 4 50 8 100"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            className="text-forest"
+          />
+        </svg>
+      </div>
+
       <Link href={`/blog/${post.slug}`}>
         <div className="space-y-3">
           {/* Date */}

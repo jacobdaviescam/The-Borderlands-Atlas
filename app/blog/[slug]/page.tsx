@@ -25,7 +25,33 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <PageLayout title={post.title}>
-      <article className="max-w-3xl mx-auto">
+      <article className="max-w-3xl mx-auto relative">
+        {/* Decorative manuscript borders around content */}
+        <div className="hidden md:block absolute -left-12 top-0 bottom-0 w-8 opacity-60">
+          <svg viewBox="0 0 32 100" fill="none" className="w-full h-full" preserveAspectRatio="none">
+            <path
+              d="M 24 0 Q 16 50 24 100"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="text-gold"
+            />
+            <path d="M 16 25 Q 12 22 16 18" fill="currentColor" className="text-forest" opacity="0.8" />
+            <path d="M 16 75 Q 12 72 16 68" fill="currentColor" className="text-forest" opacity="0.8" />
+          </svg>
+        </div>
+
+        <div className="hidden md:block absolute -right-12 top-0 bottom-0 w-8 opacity-60">
+          <svg viewBox="0 0 32 100" fill="none" className="w-full h-full" preserveAspectRatio="none">
+            <path
+              d="M 8 0 Q 16 50 8 100"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="text-gold"
+            />
+            <path d="M 16 25 Q 20 22 16 18" fill="currentColor" className="text-forest" opacity="0.8" />
+            <path d="M 16 75 Q 20 72 16 68" fill="currentColor" className="text-forest" opacity="0.8" />
+          </svg>
+        </div>
         {/* Post metadata */}
         <div className="mb-12 pb-8 border-b border-gold/30 space-y-4">
           <time className="text-sm text-brass uppercase tracking-wider block">
