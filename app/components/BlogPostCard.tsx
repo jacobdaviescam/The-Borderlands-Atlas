@@ -15,31 +15,19 @@ export default function BlogPostCard({ post, index }: BlogPostCardProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
-      className="group relative border-l-4 border-gold/50 hover:border-gold transition-colors duration-300 pl-8 py-6 pr-8"
+      className="group relative border-l-4 border-gold/50 hover:border-gold transition-colors duration-300 pl-8 py-8 pr-6"
     >
-      {/* Botanical accent on left */}
-      <div className="absolute -left-2 top-4 text-forest opacity-70">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-          <path d="M 8 2 Q 4 6 8 10 Q 12 6 8 2" />
-        </svg>
-      </div>
-      
-      {/* Right edge vine */}
-      <div className="absolute -right-4 top-0 bottom-0 w-4 opacity-50 group-hover:opacity-70 transition-opacity">
-        <svg viewBox="0 0 16 100" fill="none" className="w-full h-full" preserveAspectRatio="none">
-          <path
-            d="M 8 0 Q 4 50 8 100"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            className="text-forest"
-          />
-        </svg>
+      {/* Manuscript-style page number / marker */}
+      <div className="absolute -left-6 top-8 w-10 h-10 flex items-center justify-center border border-gold/40 bg-parchment-dark/60">
+        <span className="text-sm font-semibold text-brass">
+          {String(index + 1).padStart(2, '0')}
+        </span>
       </div>
 
       <Link href={`/blog/${post.slug}`}>
-        <div className="space-y-3">
+        <div className="space-y-4">
           {/* Date */}
-          <time className="text-sm text-brass uppercase tracking-wider">
+          <time className="text-sm text-brass uppercase tracking-widest font-medium">
             {new Date(post.date).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
@@ -47,7 +35,7 @@ export default function BlogPostCard({ post, index }: BlogPostCardProps) {
             })}
           </time>
 
-          {/* Title */}
+          {/* Title with manuscript styling */}
           <h2 className="text-3xl font-semibold text-burgundy group-hover:text-brass transition-colors">
             {post.title}
           </h2>
@@ -59,13 +47,13 @@ export default function BlogPostCard({ post, index }: BlogPostCardProps) {
             </p>
           )}
 
-          {/* Tags */}
+          {/* Tags with manuscript styling */}
           {post.tags && post.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 pt-2">
               {post.tags.map(tag => (
                 <span
                   key={tag}
-                  className="text-xs px-3 py-1 bg-parchment-dark text-text-secondary rounded-full"
+                  className="text-xs px-3 py-1 border border-gold/30 text-text-secondary uppercase tracking-wider"
                 >
                   {tag}
                 </span>
@@ -75,7 +63,7 @@ export default function BlogPostCard({ post, index }: BlogPostCardProps) {
 
           {/* Read more indicator */}
           <div className="flex items-center gap-2 text-burgundy group-hover:text-brass transition-colors pt-2">
-            <span className="text-sm font-medium">Read more</span>
+            <span className="text-sm font-medium uppercase tracking-wider">Continue Reading</span>
             <svg 
               width="16" 
               height="16" 
