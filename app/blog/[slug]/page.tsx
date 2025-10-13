@@ -26,30 +26,84 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <PageLayout title={post.title}>
       <article className="max-w-3xl mx-auto relative">
-        {/* Decorative manuscript borders around content */}
-        <div className="hidden md:block absolute -left-12 top-0 bottom-0 w-8 opacity-60">
-          <svg viewBox="0 0 32 100" fill="none" className="w-full h-full" preserveAspectRatio="none">
+        {/* Ornate manuscript borders around content */}
+        <div className="hidden md:block absolute -left-16 top-0 bottom-0 w-14 opacity-75">
+          <svg viewBox="0 0 56 100" fill="none" className="w-full h-full" preserveAspectRatio="none">
+            {/* Main decorative border */}
             <path
-              d="M 24 0 Q 16 50 24 100"
+              d="M 42 0 Q 32 25 42 50 Q 52 75 42 100"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="2.5"
               className="text-gold"
             />
-            <path d="M 16 25 Q 12 22 16 18" fill="currentColor" className="text-forest" opacity="0.8" />
-            <path d="M 16 75 Q 12 72 16 68" fill="currentColor" className="text-forest" opacity="0.8" />
+            <path
+              d="M 38 0 Q 28 25 38 50 Q 48 75 38 100"
+              stroke="currentColor"
+              strokeWidth="1"
+              className="text-brass"
+              opacity="0.6"
+            />
+            
+            {/* Corner flourishes */}
+            <g transform="translate(28, 2)">
+              <path d="M 0 0 Q 8 2 10 8 Q 8 6 4 4 Q 2 2 0 0" fill="currentColor" className="text-burgundy" opacity="0.7" />
+              <circle cx="6" cy="4" r="1" fill="currentColor" className="text-gold" opacity="0.8" />
+            </g>
+            
+            <g transform="translate(28, 94)">
+              <path d="M 0 0 Q 8 -2 10 -8 Q 8 -6 4 -4 Q 2 -2 0 0" fill="currentColor" className="text-burgundy" opacity="0.7" />
+              <circle cx="6" cy="-4" r="1" fill="currentColor" className="text-gold" opacity="0.8" />
+            </g>
+            
+            {/* Botanical elements */}
+            <path d="M 32 20 Q 22 18 18 25 Q 22 28 28 26 Q 31 23 32 20" fill="currentColor" className="text-forest" opacity="0.7" />
+            <path d="M 48 40 Q 54 38 56 44 Q 54 48 50 46 Q 49 43 48 40" fill="currentColor" className="text-burgundy" opacity="0.65" />
+            <path d="M 30 60 Q 20 58 16 65 Q 20 68 26 66 Q 29 63 30 60" fill="currentColor" className="text-forest" opacity="0.68" />
+            
+            {/* Filigree details */}
+            <line x1="36" y1="15" x2="44" y2="15" stroke="currentColor" className="text-brass" strokeWidth="0.8" opacity="0.6" />
+            <line x1="36" y1="35" x2="44" y2="35" stroke="currentColor" className="text-brass" strokeWidth="0.8" opacity="0.6" />
+            <line x1="36" y1="85" x2="44" y2="85" stroke="currentColor" className="text-brass" strokeWidth="0.8" opacity="0.6" />
           </svg>
         </div>
 
-        <div className="hidden md:block absolute -right-12 top-0 bottom-0 w-8 opacity-60">
-          <svg viewBox="0 0 32 100" fill="none" className="w-full h-full" preserveAspectRatio="none">
+        <div className="hidden md:block absolute -right-16 top-0 bottom-0 w-14 opacity-75">
+          <svg viewBox="0 0 56 100" fill="none" className="w-full h-full" preserveAspectRatio="none">
+            {/* Main decorative border */}
             <path
-              d="M 8 0 Q 16 50 8 100"
+              d="M 14 0 Q 24 25 14 50 Q 4 75 14 100"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="2.5"
               className="text-gold"
             />
-            <path d="M 16 25 Q 20 22 16 18" fill="currentColor" className="text-forest" opacity="0.8" />
-            <path d="M 16 75 Q 20 72 16 68" fill="currentColor" className="text-forest" opacity="0.8" />
+            <path
+              d="M 18 0 Q 28 25 18 50 Q 8 75 18 100"
+              stroke="currentColor"
+              strokeWidth="1"
+              className="text-brass"
+              opacity="0.6"
+            />
+            
+            {/* Corner flourishes */}
+            <g transform="translate(18, 2)">
+              <path d="M 0 0 Q -8 2 -10 8 Q -8 6 -4 4 Q -2 2 0 0" fill="currentColor" className="text-burgundy" opacity="0.7" />
+              <circle cx="-6" cy="4" r="1" fill="currentColor" className="text-gold" opacity="0.8" />
+            </g>
+            
+            <g transform="translate(18, 94)">
+              <path d="M 0 0 Q -8 -2 -10 -8 Q -8 -6 -4 -4 Q -2 -2 0 0" fill="currentColor" className="text-burgundy" opacity="0.7" />
+              <circle cx="-6" cy="-4" r="1" fill="currentColor" className="text-gold" opacity="0.8" />
+            </g>
+            
+            {/* Botanical elements */}
+            <path d="M 24 20 Q 34 18 38 25 Q 34 28 28 26 Q 25 23 24 20" fill="currentColor" className="text-forest" opacity="0.7" />
+            <path d="M 8 40 Q 2 38 0 44 Q 2 48 6 46 Q 7 43 8 40" fill="currentColor" className="text-burgundy" opacity="0.65" />
+            <path d="M 26 60 Q 36 58 40 65 Q 36 68 30 66 Q 27 63 26 60" fill="currentColor" className="text-forest" opacity="0.68" />
+            
+            {/* Filigree details */}
+            <line x1="12" y1="15" x2="20" y2="15" stroke="currentColor" className="text-brass" strokeWidth="0.8" opacity="0.6" />
+            <line x1="12" y1="35" x2="20" y2="35" stroke="currentColor" className="text-brass" strokeWidth="0.8" opacity="0.6" />
+            <line x1="12" y1="85" x2="20" y2="85" stroke="currentColor" className="text-brass" strokeWidth="0.8" opacity="0.6" />
           </svg>
         </div>
         {/* Post metadata */}
