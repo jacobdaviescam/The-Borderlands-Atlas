@@ -80,19 +80,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
         </div>
 
-        {/* Manuscript initial letter decoration */}
-        <div className="relative pl-16 mb-8">
-          <div className="absolute left-0 top-0 w-12 h-12 flex items-center justify-center bg-burgundy/10 border-2 border-gold/40">
-            <span className="text-4xl font-bold text-burgundy">
-              {post.content.trim().charAt(0).toUpperCase()}
-            </span>
-          </div>
-          
-          {/* Post content */}
-          <div className="pt-2">
-            <MarkdownContent content={post.content.trim().substring(1)} />
-          </div>
-        </div>
+        {/* Post content - just render normally */}
+        <MarkdownContent content={post.content} />
 
         {/* Pairs Well With section */}
         {post.pairsWith && (post.pairsWith.book || post.pairsWith.drink) && (

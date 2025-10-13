@@ -15,10 +15,10 @@ export default function BlogPostCard({ post, index }: BlogPostCardProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
-      className="group relative border-l-4 border-gold/50 hover:border-gold transition-colors duration-300 pl-8 py-8 pr-6"
+      className="group relative border-l-4 border-gold/50 hover:border-gold transition-colors duration-300 pl-12 py-8 pr-6"
     >
       {/* Manuscript-style page number / marker */}
-      <div className="absolute -left-6 top-8 w-10 h-10 flex items-center justify-center border border-gold/40 bg-parchment-dark/60">
+      <div className="absolute left-0 top-8 w-10 h-10 flex items-center justify-center border border-gold/40 bg-parchment-dark/60 z-10">
         <span className="text-sm font-semibold text-brass">
           {String(index + 1).padStart(2, '0')}
         </span>
