@@ -89,32 +89,34 @@ function TopBorder() {
 function DecorativeDivider() {
   return (
     <div className="flex items-center justify-center gap-3 py-2">
-      {/* Small vine left */}
-      <svg width="40" height="16" viewBox="0 0 40 16" fill="none" className="opacity-50">
+      {/* Vine left - more visible */}
+      <svg width="60" height="20" viewBox="0 0 60 20" fill="none" className="opacity-80">
         <path 
-          d="M 0 8 Q 10 6 20 8 Q 30 10 40 8" 
+          d="M 0 10 Q 15 7 30 10 Q 45 13 60 10" 
           stroke="currentColor" 
-          strokeWidth="1.5" 
+          strokeWidth="2" 
           className="text-gold"
         />
-        <path d="M 10 6 Q 9 5 10 4" fill="currentColor" className="text-forest" opacity="0.6" />
+        <path d="M 15 7 Q 13 5 15 3" fill="currentColor" className="text-forest" opacity="0.8" />
+        <path d="M 30 10 Q 28 8 30 6" fill="currentColor" className="text-forest" opacity="0.75" />
       </svg>
       
-      {/* Center */}
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="2.5" stroke="currentColor" strokeWidth="1.5" className="text-brass" />
-        <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="0.5" className="text-gold opacity-50" />
+      {/* Center - larger */}
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2" className="text-brass" />
+        <circle cx="12" cy="12" r="6" stroke="currentColor" strokeWidth="1" className="text-gold opacity-70" />
       </svg>
       
-      {/* Small vine right */}
-      <svg width="40" height="16" viewBox="0 0 40 16" fill="none" className="opacity-50">
+      {/* Vine right - more visible */}
+      <svg width="60" height="20" viewBox="0 0 60 20" fill="none" className="opacity-80">
         <path 
-          d="M 0 8 Q 10 10 20 8 Q 30 6 40 8" 
+          d="M 0 10 Q 15 13 30 10 Q 45 7 60 10" 
           stroke="currentColor" 
-          strokeWidth="1.5" 
+          strokeWidth="2" 
           className="text-gold"
         />
-        <path d="M 30 6 Q 31 5 30 4" fill="currentColor" className="text-forest" opacity="0.6" />
+        <path d="M 45 7 Q 47 5 45 3" fill="currentColor" className="text-forest" opacity="0.8" />
+        <path d="M 30 10 Q 32 8 30 6" fill="currentColor" className="text-forest" opacity="0.75" />
       </svg>
     </div>
   );
