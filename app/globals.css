@@ -61,6 +61,30 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Subtle background vignette with botanical hints */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  /* Radial gradient vignette effect */
+  background: 
+    radial-gradient(ellipse at top left, transparent 0%, transparent 40%, rgba(44, 74, 44, 0.03) 100%),
+    radial-gradient(ellipse at top right, transparent 0%, transparent 40%, rgba(107, 44, 44, 0.03) 100%),
+    radial-gradient(ellipse at bottom, transparent 0%, transparent 50%, rgba(61, 40, 23, 0.04) 100%);
+}
+
+/* Ensure content stays above background effects */
+body > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Ornamental corner decorations */

@@ -17,106 +17,6 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl text-center space-y-8 relative"
         >
-          {/* Art Deco Corner Flourishes */}
-          {/* Top Left Corner */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="absolute -top-8 -left-8 w-32 h-32 pointer-events-none"
-          >
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              {/* Corner fan shape */}
-              <path d="M 0,0 L 0,40 L 5,35 L 0,30 L 10,25 L 0,20 L 15,15 L 0,10 L 20,5 L 0,0 Z" 
-                    fill="#C9A961" opacity="0.3"/>
-              <path d="M 0,0 L 40,0 L 35,5 L 30,0 L 25,10 L 20,0 L 15,15 L 10,0 L 5,20 L 0,0 Z" 
-                    fill="#B8860B" opacity="0.3"/>
-              
-              {/* Geometric lines */}
-              <line x1="0" y1="25" x2="25" y2="0" stroke="#C9A961" strokeWidth="1.5" opacity="0.4"/>
-              <line x1="0" y1="15" x2="15" y2="0" stroke="#B8860B" strokeWidth="1" opacity="0.5"/>
-              <line x1="0" y1="35" x2="35" y2="0" stroke="#C9A961" strokeWidth="1" opacity="0.3"/>
-              
-              {/* Small decorative squares */}
-              <rect x="18" y="2" width="3" height="3" fill="#B8860B" opacity="0.5"/>
-              <rect x="2" y="18" width="3" height="3" fill="#C9A961" opacity="0.5"/>
-            </svg>
-          </motion.div>
-
-          {/* Top Right Corner */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="absolute -top-8 -right-8 w-32 h-32 pointer-events-none"
-          >
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              {/* Corner fan shape (mirrored) */}
-              <path d="M 100,0 L 100,40 L 95,35 L 100,30 L 90,25 L 100,20 L 85,15 L 100,10 L 80,5 L 100,0 Z" 
-                    fill="#C9A961" opacity="0.3"/>
-              <path d="M 100,0 L 60,0 L 65,5 L 70,0 L 75,10 L 80,0 L 85,15 L 90,0 L 95,20 L 100,0 Z" 
-                    fill="#B8860B" opacity="0.3"/>
-              
-              {/* Geometric lines */}
-              <line x1="100" y1="25" x2="75" y2="0" stroke="#C9A961" strokeWidth="1.5" opacity="0.4"/>
-              <line x1="100" y1="15" x2="85" y2="0" stroke="#B8860B" strokeWidth="1" opacity="0.5"/>
-              <line x1="100" y1="35" x2="65" y2="0" stroke="#C9A961" strokeWidth="1" opacity="0.3"/>
-              
-              {/* Small decorative squares */}
-              <rect x="79" y="2" width="3" height="3" fill="#B8860B" opacity="0.5"/>
-              <rect x="95" y="18" width="3" height="3" fill="#C9A961" opacity="0.5"/>
-            </svg>
-          </motion.div>
-
-          {/* Bottom Left Corner */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-            className="absolute -bottom-8 -left-8 w-32 h-32 pointer-events-none"
-          >
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              {/* Corner fan shape (mirrored vertically) */}
-              <path d="M 0,100 L 0,60 L 5,65 L 0,70 L 10,75 L 0,80 L 15,85 L 0,90 L 20,95 L 0,100 Z" 
-                    fill="#C9A961" opacity="0.3"/>
-              <path d="M 0,100 L 40,100 L 35,95 L 30,100 L 25,90 L 20,100 L 15,85 L 10,100 L 5,80 L 0,100 Z" 
-                    fill="#B8860B" opacity="0.3"/>
-              
-              {/* Geometric lines */}
-              <line x1="0" y1="75" x2="25" y2="100" stroke="#C9A961" strokeWidth="1.5" opacity="0.4"/>
-              <line x1="0" y1="85" x2="15" y2="100" stroke="#B8860B" strokeWidth="1" opacity="0.5"/>
-              <line x1="0" y1="65" x2="35" y2="100" stroke="#C9A961" strokeWidth="1" opacity="0.3"/>
-              
-              {/* Small decorative squares */}
-              <rect x="18" y="95" width="3" height="3" fill="#B8860B" opacity="0.5"/>
-              <rect x="2" y="79" width="3" height="3" fill="#C9A961" opacity="0.5"/>
-            </svg>
-          </motion.div>
-
-          {/* Bottom Right Corner */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-            className="absolute -bottom-8 -right-8 w-32 h-32 pointer-events-none"
-          >
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              {/* Corner fan shape (mirrored both ways) */}
-              <path d="M 100,100 L 100,60 L 95,65 L 100,70 L 90,75 L 100,80 L 85,85 L 100,90 L 80,95 L 100,100 Z" 
-                    fill="#C9A961" opacity="0.3"/>
-              <path d="M 100,100 L 60,100 L 65,95 L 70,100 L 75,90 L 80,100 L 85,85 L 90,100 L 95,80 L 100,100 Z" 
-                    fill="#B8860B" opacity="0.3"/>
-              
-              {/* Geometric lines */}
-              <line x1="100" y1="75" x2="75" y2="100" stroke="#C9A961" strokeWidth="1.5" opacity="0.4"/>
-              <line x1="100" y1="85" x2="85" y2="100" stroke="#B8860B" strokeWidth="1" opacity="0.5"/>
-              <line x1="100" y1="65" x2="65" y2="100" stroke="#C9A961" strokeWidth="1" opacity="0.3"/>
-              
-              {/* Small decorative squares */}
-              <rect x="79" y="95" width="3" height="3" fill="#B8860B" opacity="0.5"/>
-              <rect x="95" y="79" width="3" height="3" fill="#C9A961" opacity="0.5"/>
-            </svg>
-          </motion.div>
           {/* Title with decorative divider */}
           <div className="space-y-4">
             <motion.h1 
@@ -128,20 +28,7 @@ export default function Home() {
               The Borderlands Atlas
             </motion.h1>
             
-            {/* Art Deco divider */}
-            <div className="flex items-center justify-center gap-4 my-6">
-              <div className="flex items-center gap-1">
-                <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold opacity-50"></div>
-                <div className="w-2 h-2 rotate-45 border border-gold opacity-60"></div>
-                <div className="w-8 h-px bg-gold opacity-50"></div>
-              </div>
-              <div className="w-3 h-3 rounded-full border-2 border-brass opacity-60"></div>
-              <div className="flex items-center gap-1">
-                <div className="w-8 h-px bg-gold opacity-50"></div>
-                <div className="w-2 h-2 rotate-45 border border-gold opacity-60"></div>
-                <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold opacity-50"></div>
-              </div>
-            </div>
+            <DecorativeDivider />
             
             <motion.p 
               className="text-xl md:text-2xl text-text-secondary italic max-w-2xl mx-auto"
