@@ -74,7 +74,7 @@ body::after {
   bottom: 0;
   pointer-events: none;
   z-index: 0;
-  /* Layered gradients for richer atmosphere */}
+  /* Layered gradients for richer atmosphere */
   background: 
     /* Center highlight - subtle parchment glow */
     radial-gradient(ellipse 60% 60% at center, rgba(250, 245, 228, 0.15) 0%, transparent 50%),
