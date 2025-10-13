@@ -185,54 +185,19 @@ function CornerOrnaments() {
 
 function DecorativeDivider() {
   return (
-    <motion.div
-      initial={{ scaleX: 0 }}
-      animate={{ scaleX: 1 }}
-      transition={{ delay: 0.5, duration: 0.8 }}
-      className="flex items-center justify-center gap-4 py-4"
-    >
-      {/* Vine on left - more prominent */}
-      <svg width="80" height="32" viewBox="0 0 80 32" fill="none" className="opacity-90">
-        <path 
-          d="M 0 16 Q 20 10 30 16 Q 40 22 50 16 Q 65 10 80 16" 
-          stroke="currentColor" 
-          strokeWidth="2.5" 
-          className="text-gold"
-          fill="none"
-        />
-        <path d="M 20 10 Q 17 7 20 4" fill="currentColor" className="text-forest" opacity="0.8" />
-        <path d="M 40 22 Q 43 19 46 22" fill="currentColor" className="text-forest" opacity="0.8" />
-        <path d="M 30 16 Q 28 14 30 12" fill="currentColor" className="text-forest" opacity="0.75" />
-      </svg>
-      
-      {/* Center compass/map motif - larger */}
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="18" cy="18" r="4" stroke="currentColor" strokeWidth="2" className="text-brass" />
-        <circle cx="18" cy="18" r="8" stroke="currentColor" strokeWidth="1" className="text-gold opacity-70" />
-        {/* Compass points - more visible */}
-        <line x1="18" y1="4" x2="18" y2="10" stroke="currentColor" strokeWidth="1.5" className="text-burgundy opacity-70" />
-        <line x1="18" y1="26" x2="18" y2="32" stroke="currentColor" strokeWidth="1.5" className="text-burgundy opacity-70" />
-        <line x1="4" y1="18" x2="10" y2="18" stroke="currentColor" strokeWidth="1.5" className="text-burgundy opacity-70" />
-        <line x1="26" y1="18" x2="32" y2="18" stroke="currentColor" strokeWidth="1.5" className="text-burgundy opacity-70" />
-        {/* Add diagonal points */}
-        <circle cx="18" cy="6" r="1.5" fill="currentColor" className="text-burgundy opacity-60" />
-        <circle cx="18" cy="30" r="1.5" fill="currentColor" className="text-burgundy opacity-60" />
-      </svg>
-      
-      {/* Vine on right - more prominent */}
-      <svg width="80" height="32" viewBox="0 0 80 32" fill="none" className="opacity-90">
-        <path 
-          d="M 0 16 Q 15 22 30 16 Q 40 10 50 16 Q 60 22 80 16" 
-          stroke="currentColor" 
-          strokeWidth="2.5" 
-          className="text-gold"
-          fill="none"
-        />
-        <path d="M 30 16 Q 27 13 24 16" fill="currentColor" className="text-forest" opacity="0.8" />
-        <path d="M 60 22 Q 63 19 60 16" fill="currentColor" className="text-forest" opacity="0.8" />
-        <path d="M 50 16 Q 48 14 50 12" fill="currentColor" className="text-forest" opacity="0.75" />
-      </svg>
-    </motion.div>
+    <div className="flex items-center justify-center gap-4 my-6">
+      <div className="flex items-center gap-1">
+        <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold opacity-50"></div>
+        <div className="w-2 h-2 rotate-45 border border-gold opacity-60"></div>
+        <div className="w-8 h-px bg-gold opacity-50"></div>
+      </div>
+      <div className="w-3 h-3 rounded-full border-2 border-brass opacity-60"></div>
+      <div className="flex items-center gap-1">
+        <div className="w-8 h-px bg-gold opacity-50"></div>
+        <div className="w-2 h-2 rotate-45 border border-gold opacity-60"></div>
+        <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold opacity-50"></div>
+      </div>
+    </div>
   );
 }
 
