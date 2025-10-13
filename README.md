@@ -24,8 +24,9 @@ This site lives at the intersection of classic and contemporary:
 - **Framework**: [Next.js 15](https://nextjs.org/) with TypeScript
 - **Styling**: Tailwind CSS v4
 - **Animations**: Framer Motion
-- **Mind Maps**: Markmap (with plans for custom D3.js visualizations)
-- **Content**: Markdown files (easily portable from Obsidian)
+- **Mind Maps**: Markmap with D3.js (interactive visualizations)
+- **Content**: Markdown files with gray-matter (easily portable from Obsidian)
+- **Rendering**: React Markdown with GitHub Flavored Markdown support
 
 ## 📝 Adding Content
 

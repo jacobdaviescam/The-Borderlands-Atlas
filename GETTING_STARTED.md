@@ -78,16 +78,21 @@ The decorative SVG corners are in `app/page.tsx` - customize them to your taste!
 - Add it in Vercel project settings
 - Update DNS records as shown
 
-### 3. Create Blog Post Reader
-Currently, blog posts are static files. To display them:
-- Add dynamic routing: `app/blog/[slug]/page.tsx`
-- Use `gray-matter` to parse markdown
-- Use a markdown renderer like `react-markdown`
+### 3. Add More Projects
+Edit `lib/projects.ts` to add your projects:
+```typescript
+{
+  title: 'Your Project',
+  description: 'Description here',
+  tags: ['React', 'TypeScript'],
+  github: 'https://github.com/...',
+  status: 'active',
+}
+```
 
-### 4. Implement Mind Maps
-- Create a Markmap component
-- Use the `markmap-lib` and `markmap-view` packages already installed
-- Render `.md` files from `content/atlas/` as interactive maps
+### 4. Customize Mind Maps
+The Markmap component uses your theme colors (burgundy, gold, brass).
+Add more `.md` files to `content/atlas/` and they'll automatically become interactive maps!
 
 ## 🛠️ Development Commands
 
@@ -122,13 +127,15 @@ npm install package-name
 - Parchment color palette with gold accents
 - GitHub repository created and pushed
 - Sample blog post and mindmap
+- **Blog post rendering system** ✨
+- **Interactive mind map implementation with Markmap** ✨
+- **Code projects gallery** ✨
 
 🔄 **Next Phase** (when you're ready)
-- Blog post rendering system
-- Interactive mind map implementation
-- Code projects gallery
 - RSS feed
 - Search functionality
+- Custom D3.js map visualizations
+- Newsletter integration
 
 ## 💡 Tips
 
