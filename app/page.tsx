@@ -66,10 +66,10 @@ export default function Home() {
             transition={{ delay: 0.8, duration: 0.8 }}
             className="flex flex-wrap justify-center gap-6 pt-8"
           >
-            <NavLink href="/blog" label="Essays & Thoughts" />
-            <NavLink href="/atlas" label="Mind Maps" />
-            <NavLink href="/code" label="Code & Projects" />
-            <NavLink href="/about" label="About" />
+            <NavLink href="/blog" label="Essays & Thoughts" icon="book" />
+            <NavLink href="/atlas" label="Mind Maps" icon="map" />
+            <NavLink href="/code" label="Code & Projects" icon="code" />
+            <NavLink href="/about" label="About" icon="glass" />
           </motion.nav>
         </motion.div>
       </div>
@@ -80,7 +80,7 @@ export default function Home() {
 function CornerOrnaments() {
   return (
     <>
-      {/* Top Left Corner */}
+      {/* Top Left Corner - with ivy tendrils */}
       <motion.div
         initial={{ opacity: 0, x: -20, y: -20 }}
         animate={{ opacity: 0.3, x: 0, y: 0 }}
@@ -88,6 +88,7 @@ function CornerOrnaments() {
         className="corner-ornament top-0 left-0 w-48 h-48 md:w-64 md:h-64"
       >
         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Base ornamental border */}
           <path
             d="M 0 0 L 0 100 Q 0 0 100 0 L 0 0 Z"
             fill="currentColor"
@@ -101,14 +102,33 @@ function CornerOrnaments() {
             className="text-burgundy"
             fill="none"
           />
-          {/* Decorative flourishes */}
+          
+          {/* Ivy tendril creeping in */}
+          <path
+            d="M 5 50 Q 15 45 20 50 Q 25 55 30 50 Q 35 45 40 48"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            className="text-forest"
+            fill="none"
+            opacity="0.6"
+          />
+          {/* Small leaves */}
+          <path d="M 15 45 Q 12 43 15 41" fill="currentColor" className="text-forest" opacity="0.5" />
+          <path d="M 25 55 Q 22 57 25 59" fill="currentColor" className="text-forest" opacity="0.5" />
+          <path d="M 35 45 Q 32 43 35 41" fill="currentColor" className="text-forest" opacity="0.5" />
+          
+          {/* Book spine accent in corner */}
+          <rect x="3" y="3" width="8" height="40" fill="currentColor" className="text-burgundy" opacity="0.15" />
+          <line x1="3" y1="15" x2="11" y2="15" stroke="currentColor" className="text-gold" strokeWidth="0.5" opacity="0.4" />
+          <line x1="3" y1="30" x2="11" y2="30" stroke="currentColor" className="text-gold" strokeWidth="0.5" opacity="0.4" />
+          
+          {/* Decorative details */}
           <circle cx="20" cy="20" r="3" fill="currentColor" className="text-brass" />
           <circle cx="40" cy="15" r="2" fill="currentColor" className="text-gold" />
-          <circle cx="15" cy="40" r="2" fill="currentColor" className="text-gold" />
         </svg>
       </motion.div>
 
-      {/* Top Right Corner */}
+      {/* Top Right Corner - with wine glass silhouette */}
       <motion.div
         initial={{ opacity: 0, x: 20, y: -20 }}
         animate={{ opacity: 0.3, x: 0, y: 0 }}
@@ -116,6 +136,7 @@ function CornerOrnaments() {
         className="corner-ornament top-0 right-0 w-48 h-48 md:w-64 md:h-64 transform scale-x-[-1]"
       >
         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Base ornamental border */}
           <path
             d="M 0 0 L 0 100 Q 0 0 100 0 L 0 0 Z"
             fill="currentColor"
@@ -129,9 +150,28 @@ function CornerOrnaments() {
             className="text-burgundy"
             fill="none"
           />
+          
+          {/* Delicate wine glass */}
+          <g transform="translate(15, 25)" opacity="0.4">
+            <ellipse cx="8" cy="5" rx="7" ry="3" stroke="currentColor" className="text-burgundy" strokeWidth="1" fill="none" />
+            <path d="M 1 5 L 5 15 L 11 15 L 15 5" stroke="currentColor" className="text-burgundy" strokeWidth="1" fill="none" />
+            <line x1="3" y1="15" x2="13" y2="15" stroke="currentColor" className="text-burgundy" strokeWidth="1.5" />
+          </g>
+          
+          {/* Ivy growing down */}
+          <path
+            d="M 50 5 Q 45 15 50 20 Q 55 25 50 30 Q 45 35 48 40"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            className="text-forest"
+            fill="none"
+            opacity="0.6"
+          />
+          <path d="M 45 15 Q 43 12 41 15" fill="currentColor" className="text-forest" opacity="0.5" />
+          <path d="M 55 25 Q 57 22 59 25" fill="currentColor" className="text-forest" opacity="0.5" />
+          
           <circle cx="20" cy="20" r="3" fill="currentColor" className="text-brass" />
           <circle cx="40" cy="15" r="2" fill="currentColor" className="text-gold" />
-          <circle cx="15" cy="40" r="2" fill="currentColor" className="text-gold" />
         </svg>
       </motion.div>
 
@@ -200,24 +240,86 @@ function DecorativeDivider() {
       transition={{ delay: 0.5, duration: 0.8 }}
       className="flex items-center justify-center gap-4 py-4"
     >
-      <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold"></div>
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" className="text-brass" />
-        <circle cx="12" cy="12" r="6" stroke="currentColor" strokeWidth="0.5" className="text-gold opacity-50" />
+      {/* Vine on left */}
+      <svg width="60" height="24" viewBox="0 0 60 24" fill="none" className="opacity-60">
+        <path 
+          d="M 0 12 Q 15 8 20 12 Q 25 16 30 12 Q 40 8 60 12" 
+          stroke="currentColor" 
+          strokeWidth="1.5" 
+          className="text-gold"
+          fill="none"
+        />
+        <path d="M 15 8 Q 13 6 15 4" fill="currentColor" className="text-forest" opacity="0.6" />
+        <path d="M 30 12 Q 32 10 34 12" fill="currentColor" className="text-forest" opacity="0.6" />
       </svg>
-      <div className="h-px w-16 bg-gradient-to-l from-transparent to-gold"></div>
+      
+      {/* Center compass/map motif */}
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="14" r="3" stroke="currentColor" strokeWidth="1.5" className="text-brass" />
+        <circle cx="14" cy="14" r="6" stroke="currentColor" strokeWidth="0.5" className="text-gold opacity-50" />
+        {/* Compass points */}
+        <line x1="14" y1="4" x2="14" y2="8" stroke="currentColor" strokeWidth="1" className="text-burgundy opacity-40" />
+        <line x1="14" y1="20" x2="14" y2="24" stroke="currentColor" strokeWidth="1" className="text-burgundy opacity-40" />
+        <line x1="4" y1="14" x2="8" y2="14" stroke="currentColor" strokeWidth="1" className="text-burgundy opacity-40" />
+        <line x1="20" y1="14" x2="24" y2="14" stroke="currentColor" strokeWidth="1" className="text-burgundy opacity-40" />
+      </svg>
+      
+      {/* Vine on right */}
+      <svg width="60" height="24" viewBox="0 0 60 24" fill="none" className="opacity-60">
+        <path 
+          d="M 0 12 Q 20 16 30 12 Q 35 8 40 12 Q 45 16 60 12" 
+          stroke="currentColor" 
+          strokeWidth="1.5" 
+          className="text-gold"
+          fill="none"
+        />
+        <path d="M 30 12 Q 28 10 26 12" fill="currentColor" className="text-forest" opacity="0.6" />
+        <path d="M 45 16 Q 47 14 45 12" fill="currentColor" className="text-forest" opacity="0.6" />
+      </svg>
     </motion.div>
   );
 }
 
-function NavLink({ href, label }: { href: string; label: string }) {
+function NavLink({ href, label, icon }: { href: string; label: string; icon: string }) {
+  const getIcon = () => {
+    switch (icon) {
+      case 'book':
+        return (
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+        );
+      case 'map':
+        return (
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+          </svg>
+        );
+      case 'code':
+        return (
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+        );
+      case 'glass':
+        return (
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M8 2h8M9 2v2.789a4 4 0 0 1-.672 2.219l-.656.984A4 4 0 0 0 7 10.212V20a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-9.789a4 4 0 0 1-.672-2.219l-.656-.984A4 4 0 0 0 15 4.788V2" />
+          </svg>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <Link
       href={href}
       className="group relative px-6 py-3 text-lg font-medium text-burgundy border border-burgundy/30 
                  hover:border-burgundy transition-all duration-300 overflow-hidden"
     >
-      <span className="relative z-10 group-hover:text-cream transition-colors duration-300">
+      <span className="relative z-10 group-hover:text-cream transition-colors duration-300 flex items-center gap-2">
+        {getIcon()}
         {label}
       </span>
       <motion.div

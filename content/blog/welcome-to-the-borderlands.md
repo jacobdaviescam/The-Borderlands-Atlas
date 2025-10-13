@@ -3,6 +3,9 @@ title: "Welcome to the Borderlands"
 date: "2025-10-13"
 excerpt: "An introduction to this space and why it exists at the edge of certainty."
 tags: ["meta", "philosophy", "introduction"]
+pairsWith:
+  book: "The Brothers Karamazov by Dostoevsky"
+  drink: "Negroni — bitter, complex, contemplative"
 ---
 
 # Welcome to the Borderlands

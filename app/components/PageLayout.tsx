@@ -88,13 +88,34 @@ function TopBorder() {
 
 function DecorativeDivider() {
   return (
-    <div className="flex items-center justify-center gap-4 py-2">
-      <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold"></div>
+    <div className="flex items-center justify-center gap-3 py-2">
+      {/* Small vine left */}
+      <svg width="40" height="16" viewBox="0 0 40 16" fill="none" className="opacity-50">
+        <path 
+          d="M 0 8 Q 10 6 20 8 Q 30 10 40 8" 
+          stroke="currentColor" 
+          strokeWidth="1.5" 
+          className="text-gold"
+        />
+        <path d="M 10 6 Q 9 5 10 4" fill="currentColor" className="text-forest" opacity="0.6" />
+      </svg>
+      
+      {/* Center */}
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="12" r="2.5" stroke="currentColor" strokeWidth="1.5" className="text-brass" />
         <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="0.5" className="text-gold opacity-50" />
       </svg>
-      <div className="h-px w-16 bg-gradient-to-l from-transparent to-gold"></div>
+      
+      {/* Small vine right */}
+      <svg width="40" height="16" viewBox="0 0 40 16" fill="none" className="opacity-50">
+        <path 
+          d="M 0 8 Q 10 10 20 8 Q 30 6 40 8" 
+          stroke="currentColor" 
+          strokeWidth="1.5" 
+          className="text-gold"
+        />
+        <path d="M 30 6 Q 31 5 30 4" fill="currentColor" className="text-forest" opacity="0.6" />
+      </svg>
     </div>
   );
 }

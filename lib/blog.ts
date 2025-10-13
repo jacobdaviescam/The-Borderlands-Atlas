@@ -11,6 +11,10 @@ export interface BlogPost {
   excerpt: string;
   tags?: string[];
   content: string;
+  pairsWith?: {
+    book?: string;
+    drink?: string;
+  };
 }
 
 export function getAllPosts(): BlogPost[] {
@@ -35,6 +39,7 @@ export function getAllPosts(): BlogPost[] {
         excerpt: data.excerpt || '',
         tags: data.tags || [],
         content,
+        pairsWith: data.pairsWith || undefined,
       };
     });
 
@@ -59,6 +64,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
       excerpt: data.excerpt || '',
       tags: data.tags || [],
       content,
+      pairsWith: data.pairsWith || undefined,
     };
   } catch {
     return null;
