@@ -17,102 +17,183 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl text-center space-y-8 relative"
         >
-          {/* Left edge botanical garden */}
+          {/* Left edge - Lush cascading botanical garden */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 0.75, x: 0 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 1 }}
-            className="hidden md:block absolute -left-24 top-0 bottom-0 w-20"
+            className="hidden md:block absolute -left-32 top-0 bottom-0 w-32 pointer-events-none"
           >
-            <svg viewBox="0 0 100 400" fill="none" className="w-full h-full" preserveAspectRatio="xMinYMid meet">
-              {/* Ivy vine stem */}
-              <path
-                d="M 65 20 Q 55 60 65 100 Q 75 140 65 180 Q 55 220 65 260 Q 75 300 65 340"
-                stroke="currentColor"
-                strokeWidth="2"
-                className="text-forest"
-                opacity="0.75"
-                fill="none"
-              />
-              
-              {/* Clear ivy leaves - heart shaped */}
-              <path d="M 55 50 L 65 45 L 75 50 Q 75 58 65 62 Q 55 58 55 50 Z" fill="currentColor" className="text-forest" opacity="0.7" />
-              <path d="M 75 90 L 85 85 L 95 90 Q 95 98 85 102 Q 75 98 75 90 Z" fill="currentColor" className="text-forest" opacity="0.68" />
-              <path d="M 55 150 L 65 145 L 75 150 Q 75 158 65 162 Q 55 158 55 150 Z" fill="currentColor" className="text-forest" opacity="0.72" />
-              <path d="M 45 210 L 55 205 L 65 210 Q 65 218 55 222 Q 45 218 45 210 Z" fill="currentColor" className="text-forest" opacity="0.7" />
-              <path d="M 75 270 L 85 265 L 95 270 Q 95 278 85 282 Q 75 278 75 270 Z" fill="currentColor" className="text-forest" opacity="0.68" />
-              
-              {/* Book spines - clean and clear */}
-              <g opacity="0.6">
-                <rect x="10" y="80" width="16" height="70" fill="currentColor" className="text-burgundy" />
-                <line x1="10" y1="100" x2="26" y2="100" stroke="currentColor" className="text-gold" strokeWidth="2" />
-                <line x1="10" y1="115" x2="26" y2="115" stroke="currentColor" className="text-gold" strokeWidth="1" />
-              </g>
-              
-              <g opacity="0.55">
-                <rect x="8" y="180" width="14" height="60" fill="currentColor" className="text-navy" />
-                <line x1="8" y1="195" x2="22" y2="195" stroke="currentColor" className="text-brass" strokeWidth="1.5" />
-              </g>
-              
-              {/* Simple flower cluster */}
-              <g opacity="0.65">
-                <circle cx="70" cy="330" r="3" fill="currentColor" className="text-brass" />
-                <circle cx="65" cy="327" r="2.5" fill="currentColor" className="text-gold" />
-                <circle cx="75" cy="327" r="2.5" fill="currentColor" className="text-gold" />
-                <line x1="70" y1="330" x2="70" y2="345" stroke="currentColor" className="text-forest" strokeWidth="1.5" />
-              </g>
-            </svg>
+            {/* Cascading vines from top */}
+            <div className="absolute top-0 left-0 right-0 h-64">
+              <svg viewBox="0 0 120 300" className="w-full h-full" preserveAspectRatio="xMinYMin slice">
+                {/* Main cascading vine */}
+                <path d="M80,0 Q70,30 75,60 Q80,90 70,120 Q65,150 72,180 Q75,210 68,240 Q65,270 70,300" 
+                      stroke="#2C4A2C" strokeWidth="3" fill="none" opacity="0.6"/>
+                
+                {/* Hanging ivy leaves - layered */}
+                <g opacity="0.7">
+                  <ellipse cx="65" cy="40" rx="12" ry="18" fill="#2C4A2C" opacity="0.5"/>
+                  <ellipse cx="70" cy="38" rx="10" ry="16" fill="#3D5A3D" opacity="0.6"/>
+                  <ellipse cx="75" cy="42" rx="11" ry="17" fill="#2C4A2C" opacity="0.55"/>
+                </g>
+                
+                <g opacity="0.65">
+                  <ellipse cx="75" cy="90" rx="14" ry="20" fill="#2C4A2C" opacity="0.5"/>
+                  <ellipse cx="82" cy="88" rx="12" ry="18" fill="#3D5A3D" opacity="0.6"/>
+                  <ellipse cx="70" cy="95" rx="10" ry="16" fill="#2C4A2C" opacity="0.55"/>
+                </g>
+                
+                {/* Fern fronds */}
+                <g opacity="0.6">
+                  <path d="M55,80 Q45,85 40,95 L42,96 Q47,88 55,82" fill="#2C4A2C"/>
+                  <path d="M55,85 Q43,90 38,100 L40,101 Q45,93 55,87" fill="#3D5A3D"/>
+                  <path d="M55,90 Q41,95 36,105 L38,106 Q43,98 55,92" fill="#2C4A2C"/>
+                </g>
+                
+                {/* Small flowers */}
+                <g opacity="0.5">
+                  <circle cx="60" cy="140" r="3" fill="#C9A961"/>
+                  <circle cx="58" cy="137" r="2" fill="#B8860B"/>
+                  <circle cx="62" cy="137" r="2" fill="#B8860B"/>
+                </g>
+              </svg>
+            </div>
+            
+            {/* Book spines in middle */}
+            <div className="absolute top-1/4 left-4 w-20 h-64 flex flex-col gap-1">
+              <div className="h-24 w-16 bg-burgundy opacity-60 border-l-2 border-gold shadow-lg">
+                <div className="h-0.5 w-full bg-gold mt-4 opacity-70"></div>
+                <div className="h-0.5 w-full bg-gold mt-6 opacity-70"></div>
+              </div>
+              <div className="h-32 w-14 bg-navy opacity-55 border-l-2 border-brass shadow-lg ml-1">
+                <div className="h-0.5 w-full bg-brass mt-6 opacity-70"></div>
+              </div>
+              <div className="h-20 w-16 bg-deep-brown opacity-50 border-l-2 border-gold shadow-lg">
+                <div className="h-0.5 w-full bg-gold mt-3 opacity-70"></div>
+              </div>
+            </div>
+            
+            {/* Plants growing from bottom */}
+            <div className="absolute bottom-0 left-0 right-0 h-48">
+              <svg viewBox="0 0 120 200" className="w-full h-full" preserveAspectRatio="xMinYMax slice">
+                {/* Ground plants reaching up */}
+                <g opacity="0.65">
+                  <ellipse cx="70" cy="160" rx="15" ry="22" fill="#2C4A2C" opacity="0.6"/>
+                  <ellipse cx="75" cy="155" rx="13" ry="20" fill="#3D5A3D" opacity="0.7"/>
+                  <ellipse cx="80" cy="162" rx="14" ry="21" fill="#2C4A2C" opacity="0.65"/>
+                </g>
+                
+                {/* Tall ferns */}
+                <g opacity="0.7">
+                  <line x1="65" y1="200" x2="62" y2="130" stroke="#2C4A2C" strokeWidth="2.5"/>
+                  <ellipse cx="60" cy="140" rx="8" ry="15" fill="#3D5A3D" opacity="0.6" transform="rotate(-30 60 140)"/>
+                  <ellipse cx="64" cy="150" rx="7" ry="13" fill="#2C4A2C" opacity="0.65" transform="rotate(-35 64 150)"/>
+                  <ellipse cx="60" cy="160" rx="9" ry="16" fill="#3D5A3D" opacity="0.6" transform="rotate(-25 60 160)"/>
+                </g>
+              </svg>
+            </div>
           </motion.div>
 
-          {/* Right edge with wine glass and roses */}
+          {/* Right edge - Flowers and drinks corner */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 0.75, x: 0 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 1 }}
-            className="hidden md:block absolute -right-24 top-0 bottom-0 w-20"
+            className="hidden md:block absolute -right-32 top-0 bottom-0 w-32 pointer-events-none"
           >
-            <svg viewBox="0 0 100 400" fill="none" className="w-full h-full" preserveAspectRatio="xMaxYMid meet">
-              {/* Rose stem with thorns */}
-              <path
-                d="M 35 40 Q 30 80 35 120 Q 40 160 35 200"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                className="text-forest"
-                opacity="0.7"
-                fill="none"
-              />
-              
-              {/* Rose leaves - compound leaf shape */}
-              <ellipse cx="25" cy="70" rx="8" ry="12" fill="currentColor" className="text-forest" opacity="0.65" />
-              <ellipse cx="45" cy="70" rx="8" ry="12" fill="currentColor" className="text-forest" opacity="0.65" />
-              <ellipse cx="35" cy="60" rx="9" ry="14" fill="currentColor" className="text-forest" opacity="0.7" />
-              
-              <ellipse cx="20" cy="150" rx="8" ry="12" fill="currentColor" className="text-forest" opacity="0.68" />
-              <ellipse cx="40" cy="150" rx="8" ry="12" fill="currentColor" className="text-forest" opacity="0.68" />
-              <ellipse cx="30" cy="140" rx="9" ry="14" fill="currentColor" className="text-forest" opacity="0.72" />
-              
-              {/* Simple rose */}
-              <g opacity="0.7">
-                <circle cx="35" cy="30" r="8" fill="currentColor" className="text-burgundy" />
-                <circle cx="32" cy="27" r="4" fill="currentColor" className="text-burgundy" opacity="0.8" />
-                <circle cx="38" cy="27" r="4" fill="currentColor" className="text-burgundy" opacity="0.8" />
-              </g>
-              
-              {/* Wine glass - clean and recognizable */}
-              <g transform="translate(20, 250)" opacity="0.7">
-                <ellipse cx="15" cy="8" rx="12" ry="5" stroke="currentColor" className="text-burgundy" strokeWidth="2.5" fill="none" />
-                <path d="M 3 8 L 9 24 L 21 24 L 27 8" stroke="currentColor" className="text-burgundy" strokeWidth="2.5" fill="none" />
-                <line x1="6" y1="24" x2="24" y2="24" stroke="currentColor" className="text-burgundy" strokeWidth="3" />
-                {/* Wine in glass */}
-                <ellipse cx="15" cy="8" rx="10" ry="4" fill="currentColor" className="text-burgundy" opacity="0.5" />
-              </g>
-              
-              {/* Grape vine leaf */}
-              <g opacity="0.68">
-                <path d="M 25 320 Q 15 315 10 325 Q 15 335 25 330 Q 35 325 25 320 Z" fill="currentColor" className="text-forest" />
-                <line x1="25" y1="320" x2="20" y2="305" stroke="currentColor" className="text-forest" strokeWidth="1.5" />
-              </g>
-            </svg>
+            {/* Hanging plants from top */}
+            <div className="absolute top-0 left-0 right-0 h-64">
+              <svg viewBox="0 0 120 300" className="w-full h-full" preserveAspectRatio="xMaxYMin slice">
+                {/* Trailing vine */}
+                <path d="M40,0 Q50,30 45,60 Q40,90 50,120 Q55,150 48,180 Q45,210 52,240 Q55,270 50,300" 
+                      stroke="#2C4A2C" strokeWidth="3" fill="none" opacity="0.6"/>
+                
+                {/* Rose-like flowers */}
+                <g opacity="0.7">
+                  <circle cx="50" cy="50" r="10" fill="#6B2C2C" opacity="0.6"/>
+                  <circle cx="47" cy="47" r="6" fill="#8B3C3C" opacity="0.7"/>
+                  <circle cx="53" cy="47" r="6" fill="#8B3C3C" opacity="0.7"/>
+                  <circle cx="50" cy="52" r="5" fill="#6B2C2C" opacity="0.8"/>
+                </g>
+                
+                {/* Rose leaves */}
+                <g opacity="0.65">
+                  <ellipse cx="38" cy="60" rx="10" ry="15" fill="#2C4A2C" opacity="0.6"/>
+                  <ellipse cx="45" cy="58" rx="9" ry="14" fill="#3D5A3D" opacity="0.65"/>
+                  <ellipse cx="52" cy="62" rx="10" ry="15" fill="#2C4A2C" opacity="0.6"/>
+                </g>
+                
+                {/* Lavender sprigs */}
+                <g opacity="0.6">
+                  <line x1="60" y1="120" x2="65" y2="140" stroke="#2C4A2C" strokeWidth="2"/>
+                  <circle cx="64" cy="125" r="2.5" fill="#6B2C2C" opacity="0.7"/>
+                  <circle cx="63" cy="128" r="2" fill="#8B3C3C" opacity="0.6"/>
+                  <circle cx="65" cy="128" r="2" fill="#8B3C3C" opacity="0.6"/>
+                  <circle cx="64" cy="131" r="2" fill="#6B2C2C" opacity="0.7"/>
+                </g>
+              </svg>
+            </div>
+            
+            {/* Drinks globe with glasses */}
+            <div className="absolute top-1/3 right-4 w-24 h-32">
+              <svg viewBox="0 0 100 120" className="w-full h-full">
+                {/* Old fashioned glass with amber liquid */}
+                <g opacity="0.75">
+                  {/* Glass */}
+                  <rect x="30" y="50" width="40" height="50" rx="3" 
+                        stroke="#B8860B" strokeWidth="2.5" fill="none"/>
+                  {/* Liquid */}
+                  <rect x="32" y="65" width="36" height="33" 
+                        fill="#C9A961" opacity="0.6"/>
+                  {/* Ice cube suggestion */}
+                  <rect x="45" y="70" width="10" height="10" 
+                        fill="#FAF5E4" opacity="0.4"/>
+                  {/* Glass base */}
+                  <rect x="35" y="98" width="30" height="4" 
+                        fill="#B8860B" opacity="0.8"/>
+                </g>
+                
+                {/* Wine glass behind */}
+                <g opacity="0.6" transform="translate(-10, -5)">
+                  <ellipse cx="45" cy="35" rx="15" ry="6" 
+                           stroke="#6B2C2C" strokeWidth="2" fill="none"/>
+                  <path d="M30,35 L36,50 L54,50 L60,35" 
+                        stroke="#6B2C2C" strokeWidth="2" fill="none"/>
+                  <line x1="33" y1="50" x2="57" y2="50" 
+                        stroke="#6B2C2C" strokeWidth="3"/>
+                  <ellipse cx="45" cy="35" rx="13" ry="5" 
+                           fill="#6B2C2C" opacity="0.5"/>
+                </g>
+              </svg>
+            </div>
+            
+            {/* Bottom plants */}
+            <div className="absolute bottom-0 left-0 right-0 h-56">
+              <svg viewBox="0 0 120 230" className="w-full h-full" preserveAspectRatio="xMaxYMax slice">
+                {/* Large leafy plant */}
+                <g opacity="0.7">
+                  <ellipse cx="45" cy="180" rx="18" ry="25" fill="#2C4A2C" opacity="0.6"/>
+                  <ellipse cx="50" cy="175" rx="16" ry="23" fill="#3D5A3D" opacity="0.7"/>
+                  <ellipse cx="55" cy="182" rx="17" ry="24" fill="#2C4A2C" opacity="0.65"/>
+                  <ellipse cx="40" cy="185" rx="15" ry="22" fill="#3D5A3D" opacity="0.6"/>
+                </g>
+                
+                {/* Smaller flowering plant */}
+                <g opacity="0.65">
+                  <line x1="60" y1="230" x2="58" y2="170" stroke="#2C4A2C" strokeWidth="2.5"/>
+                  <circle cx="58" cy="175" r="5" fill="#C9A961" opacity="0.7"/>
+                  <circle cx="55" cy="172" r="3" fill="#B8860B" opacity="0.6"/>
+                  <circle cx="61" cy="172" r="3" fill="#B8860B" opacity="0.6"/>
+                </g>
+                
+                {/* Grape vine leaves */}
+                <g opacity="0.6">
+                  <path d="M30,200 Q20,195 15,205 Q20,215 30,210 Q35,205 30,200" fill="#2C4A2C"/>
+                  <path d="M35,210 Q25,205 20,215 Q25,225 35,220 Q40,215 35,210" fill="#3D5A3D"/>
+                </g>
+              </svg>
+            </div>
           </motion.div>
           {/* Title with decorative divider */}
           <div className="space-y-4">
