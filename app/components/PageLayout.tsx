@@ -13,84 +13,70 @@ interface PageLayoutProps {
 export default function PageLayout({ children, title, subtitle }: PageLayoutProps) {
   return (
     <main className="min-h-screen relative">
-      {/* Subtle corner ornaments on inner pages */}
+      {/* Clean Art Deco top border */}
       <TopBorder />
       
-      {/* Left page edge - ornate botanical border */}
+      {/* Left page edge - clean geometric border */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 0.7, x: 0 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.3, duration: 1 }}
-        className="hidden lg:block fixed left-2 top-20 bottom-20 w-16"
+        className="hidden lg:block fixed left-4 top-32 bottom-32 w-12"
       >
-        <svg viewBox="0 0 64 800" fill="none" className="w-full h-full" preserveAspectRatio="none">
+        <svg viewBox="0 0 48 800" fill="none" className="w-full h-full" preserveAspectRatio="none">
           {/* Decorative border lines */}
           <path
-            d="M 48 0 Q 36 200 48 400 Q 60 600 48 800"
+            d="M 36 0 Q 28 200 36 400 Q 44 600 36 800"
             stroke="currentColor"
-            strokeWidth="2.5"
+            strokeWidth="2"
             className="text-gold"
-            opacity="0.75"
+            opacity="0.5"
           />
           <path
-            d="M 42 0 Q 30 200 42 400 Q 54 600 42 800"
+            d="M 32 0 Q 24 200 32 400 Q 40 600 32 800"
             stroke="currentColor"
             strokeWidth="1"
             className="text-brass"
-            opacity="0.6"
+            opacity="0.4"
           />
           
-          {/* Repeating botanical motifs */}
-          <g opacity="0.7">
-            <path d="M 36 100 Q 26 98 22 105 Q 26 110 32 108 Q 35 104 36 100" fill="currentColor" className="text-forest" />
-            <path d="M 36 300 Q 26 298 22 305 Q 26 310 32 308 Q 35 304 36 300" fill="currentColor" className="text-burgundy" />
-            <path d="M 36 500 Q 26 498 22 505 Q 26 510 32 508 Q 35 504 36 500" fill="currentColor" className="text-forest" />
-            <path d="M 36 700 Q 26 698 22 705 Q 26 710 32 708 Q 35 704 36 700" fill="currentColor" className="text-burgundy" />
-          </g>
-          
           {/* Decorative dots */}
-          <circle cx="45" cy="150" r="1.5" fill="currentColor" className="text-brass" opacity="0.7" />
-          <circle cx="45" cy="350" r="1.5" fill="currentColor" className="text-brass" opacity="0.7" />
-          <circle cx="45" cy="550" r="1.5" fill="currentColor" className="text-brass" opacity="0.7" />
+          <circle cx="34" cy="150" r="2" fill="currentColor" className="text-brass" opacity="0.5" />
+          <circle cx="34" cy="350" r="2" fill="currentColor" className="text-brass" opacity="0.5" />
+          <circle cx="34" cy="550" r="2" fill="currentColor" className="text-brass" opacity="0.5" />
+          <circle cx="34" cy="650" r="2" fill="currentColor" className="text-gold" opacity="0.4" />
         </svg>
       </motion.div>
 
-      {/* Right page edge - ornate botanical border */}
+      {/* Right page edge - clean geometric border */}
       <motion.div
         initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 0.7, x: 0 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.3, duration: 1 }}
-        className="hidden lg:block fixed right-2 top-20 bottom-20 w-16"
+        className="hidden lg:block fixed right-4 top-32 bottom-32 w-12"
       >
-        <svg viewBox="0 0 64 800" fill="none" className="w-full h-full" preserveAspectRatio="none">
+        <svg viewBox="0 0 48 800" fill="none" className="w-full h-full" preserveAspectRatio="none">
           {/* Decorative border lines */}
           <path
-            d="M 16 0 Q 28 200 16 400 Q 4 600 16 800"
+            d="M 12 0 Q 20 200 12 400 Q 4 600 12 800"
             stroke="currentColor"
-            strokeWidth="2.5"
+            strokeWidth="2"
             className="text-gold"
-            opacity="0.75"
+            opacity="0.5"
           />
           <path
-            d="M 22 0 Q 34 200 22 400 Q 10 600 22 800"
+            d="M 16 0 Q 24 200 16 400 Q 8 600 16 800"
             stroke="currentColor"
             strokeWidth="1"
             className="text-brass"
-            opacity="0.6"
+            opacity="0.4"
           />
           
-          {/* Repeating botanical motifs */}
-          <g opacity="0.7">
-            <path d="M 28 100 Q 38 98 42 105 Q 38 110 32 108 Q 29 104 28 100" fill="currentColor" className="text-forest" />
-            <path d="M 28 300 Q 38 298 42 305 Q 38 310 32 308 Q 29 304 28 300" fill="currentColor" className="text-burgundy" />
-            <path d="M 28 500 Q 38 498 42 505 Q 38 510 32 508 Q 29 504 28 500" fill="currentColor" className="text-forest" />
-            <path d="M 28 700 Q 38 698 42 705 Q 38 710 32 708 Q 29 704 28 700" fill="currentColor" className="text-burgundy" />
-          </g>
-          
           {/* Decorative dots */}
-          <circle cx="19" cy="150" r="1.5" fill="currentColor" className="text-brass" opacity="0.7" />
-          <circle cx="19" cy="350" r="1.5" fill="currentColor" className="text-brass" opacity="0.7" />
-          <circle cx="19" cy="550" r="1.5" fill="currentColor" className="text-brass" opacity="0.7" />
+          <circle cx="14" cy="150" r="2" fill="currentColor" className="text-brass" opacity="0.5" />
+          <circle cx="14" cy="350" r="2" fill="currentColor" className="text-brass" opacity="0.5" />
+          <circle cx="14" cy="550" r="2" fill="currentColor" className="text-brass" opacity="0.5" />
+          <circle cx="14" cy="650" r="2" fill="currentColor" className="text-gold" opacity="0.4" />
         </svg>
       </motion.div>
       
@@ -166,36 +152,18 @@ function TopBorder() {
 
 function DecorativeDivider() {
   return (
-    <div className="flex items-center justify-center gap-3 py-2">
-      {/* Vine left - more visible */}
-      <svg width="60" height="20" viewBox="0 0 60 20" fill="none" className="opacity-80">
-        <path 
-          d="M 0 10 Q 15 7 30 10 Q 45 13 60 10" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          className="text-gold"
-        />
-        <path d="M 15 7 Q 13 5 15 3" fill="currentColor" className="text-forest" opacity="0.8" />
-        <path d="M 30 10 Q 28 8 30 6" fill="currentColor" className="text-forest" opacity="0.75" />
-      </svg>
-      
-      {/* Center - larger */}
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2" className="text-brass" />
-        <circle cx="12" cy="12" r="6" stroke="currentColor" strokeWidth="1" className="text-gold opacity-70" />
-      </svg>
-      
-      {/* Vine right - more visible */}
-      <svg width="60" height="20" viewBox="0 0 60 20" fill="none" className="opacity-80">
-        <path 
-          d="M 0 10 Q 15 13 30 10 Q 45 7 60 10" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          className="text-gold"
-        />
-        <path d="M 45 7 Q 47 5 45 3" fill="currentColor" className="text-forest" opacity="0.8" />
-        <path d="M 30 10 Q 32 8 30 6" fill="currentColor" className="text-forest" opacity="0.75" />
-      </svg>
+    <div className="flex items-center justify-center gap-4 my-6">
+      <div className="flex items-center gap-1">
+        <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold opacity-50"></div>
+        <div className="w-2 h-2 rotate-45 border border-gold opacity-60"></div>
+        <div className="w-8 h-px bg-gold opacity-50"></div>
+      </div>
+      <div className="w-3 h-3 rounded-full border-2 border-brass opacity-60"></div>
+      <div className="flex items-center gap-1">
+        <div className="w-8 h-px bg-gold opacity-50"></div>
+        <div className="w-2 h-2 rotate-45 border border-gold opacity-60"></div>
+        <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold opacity-50"></div>
+      </div>
     </div>
   );
 }
