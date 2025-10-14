@@ -1,0 +1,106 @@
+<svg width="3000" height="2000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 2000">
+  <!-- Antique Map Background - Placeholder for custom map -->
+  <!-- This is a stylized vintage map design that can be replaced with actual artwork -->
+  
+  <!-- Base parchment texture -->
+  <defs>
+    <filter id="paper-texture">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#F4E8D0" surfaceScale="2">
+        <feDistantLight azimuth="45" elevation="60"/>
+      </feDiffuseLighting>
+    </filter>
+    
+    <pattern id="worn-edges" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <circle cx="50" cy="50" r="2" fill="#8B7355" opacity="0.1"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="3000" height="2000" fill="#E8D7B5"/>
+  <rect width="3000" height="2000" fill="url(#worn-edges)" opacity="0.3"/>
+  
+  <!-- Border decoration -->
+  <rect x="50" y="50" width="2900" height="1900" fill="none" stroke="#8B7355" stroke-width="3"/>
+  <rect x="60" y="60" width="2880" height="1880" fill="none" stroke="#C9A961" stroke-width="1"/>
+  
+  <!-- The Central Plaza (Homepage) - Top Center -->
+  <g id="central-plaza" opacity="0.4">
+    <circle cx="1500" cy="400" r="180" fill="none" stroke="#6B2C2C" stroke-width="2"/>
+    <text x="1500" y="410" font-family="serif" font-size="32" fill="#3D2817" text-anchor="middle" font-weight="600">THE CENTRAL PLAZA</text>
+    <text x="1500" y="445" font-family="serif" font-size="18" fill="#6B4423" text-anchor="middle" font-style="italic">Gateway to All Territories</text>
+    
+    <!-- Compass rose -->
+    <circle cx="1500" cy="280" r="40" fill="none" stroke="#C9A961" stroke-width="2"/>
+    <path d="M 1500 240 L 1510 270 L 1500 265 L 1490 270 Z" fill="#6B2C2C"/>
+    <path d="M 1500 320 L 1510 290 L 1500 295 L 1490 290 Z" fill="#6B2C2C" opacity="0.5"/>
+    <path d="M 1460 280 L 1490 290 L 1485 280 L 1490 270 Z" fill="#6B2C2C" opacity="0.5"/>
+    <path d="M 1540 280 L 1510 290 L 1515 280 L 1510 270 Z" fill="#6B2C2C" opacity="0.5"/>
+  </g>
+  
+  <!-- The Library Quarter (Blog) - Left -->
+  <g id="library-quarter" opacity="0.4">
+    <rect x="300" y="800" width="400" height="300" rx="10" fill="none" stroke="#2C4A2C" stroke-width="2"/>
+    <text x="500" y="960" font-family="serif" font-size="28" fill="#3D2817" text-anchor="middle" font-weight="600">THE LIBRARY</text>
+    <text x="500" y="990" font-family="serif" font-size="28" fill="#3D2817" text-anchor="middle" font-weight="600">QUARTER</text>
+    <text x="500" y="1020" font-family="serif" font-size="16" fill="#6B4423" text-anchor="middle" font-style="italic">Chronicles & Reflections</text>
+    
+    <!-- Book stack illustration -->
+    <rect x="420" y="850" width="60" height="15" fill="#6B2C2C" opacity="0.3"/>
+    <rect x="425" y="870" width="55" height="15" fill="#2C4A2C" opacity="0.3"/>
+    <rect x="430" y="890" width="50" height="15" fill="#6B2C2C" opacity="0.3"/>
+  </g>
+  
+  <!-- The Cartography District (Atlas/Mindmaps) - Top Right -->
+  <g id="cartography-district" opacity="0.4">
+    <polygon points="2200,300 2600,300 2600,600 2200,600" fill="none" stroke="#1A1F3A" stroke-width="2"/>
+    <text x="2400" y="440" font-family="serif" font-size="28" fill="#3D2817" text-anchor="middle" font-weight="600">CARTOGRAPHY</text>
+    <text x="2400" y="470" font-family="serif" font-size="28" fill="#3D2817" text-anchor="middle" font-weight="600">DISTRICT</text>
+    <text x="2400" y="500" font-family="serif" font-size="16" fill="#6B4423" text-anchor="middle" font-style="italic">Maps of Knowledge</text>
+    
+    <!-- Sextant illustration -->
+    <circle cx="2400" cy="360" r="30" fill="none" stroke="#C9A961" stroke-width="2"/>
+    <line x1="2400" y1="360" x2="2430" y2="340" stroke="#C9A961" stroke-width="2"/>
+  </g>
+  
+  <!-- The Workshop (Code) - Bottom Right -->
+  <g id="workshop" opacity="0.4">
+    <rect x="2100" y="1400" width="500" height="350" rx="15" fill="none" stroke="#6B2C2C" stroke-width="2"/>
+    <text x="2350" y="1570" font-family="serif" font-size="28" fill="#3D2817" text-anchor="middle" font-weight="600">THE WORKSHOP</text>
+    <text x="2350" y="1605" font-family="serif" font-size="16" fill="#6B4423" text-anchor="middle" font-style="italic">Forge of Creation</text>
+    
+    <!-- Gear illustration -->
+    <circle cx="2350" cy="1490" r="35" fill="none" stroke="#B8860B" stroke-width="3"/>
+    <circle cx="2350" cy="1490" r="20" fill="none" stroke="#B8860B" stroke-width="2"/>
+    <path d="M 2340 1455 L 2360 1455 L 2360 1470 L 2340 1470 Z" fill="#B8860B" opacity="0.5"/>
+    <path d="M 2340 1510 L 2360 1510 L 2360 1525 L 2340 1525 Z" fill="#B8860B" opacity="0.5"/>
+  </g>
+  
+  <!-- The Study (About) - Bottom Left -->
+  <g id="study" opacity="0.4">
+    <ellipse cx="500" cy="1500" rx="250" ry="200" fill="none" stroke="#6B2C2C" stroke-width="2"/>
+    <text x="500" y="1500" font-family="serif" font-size="28" fill="#3D2817" text-anchor="middle" font-weight="600">THE STUDY</text>
+    <text x="500" y="1535" font-family="serif" font-size="16" fill="#6B4423" text-anchor="middle" font-style="italic">The Cartographer's Chamber</text>
+    
+    <!-- Quill illustration -->
+    <path d="M 520 1430 Q 530 1425 540 1435 L 535 1445 Q 528 1442 520 1450" stroke="#6B2C2C" stroke-width="2" fill="none"/>
+  </g>
+  
+  <!-- Decorative paths connecting regions -->
+  <path d="M 1500 580 Q 1000 700 700 800" stroke="#8B7355" stroke-width="2" stroke-dasharray="10,5" fill="none" opacity="0.3"/>
+  <path d="M 1650 450 Q 1900 400 2200 400" stroke="#8B7355" stroke-width="2" stroke-dasharray="10,5" fill="none" opacity="0.3"/>
+  <path d="M 1600 550 Q 1850 900 2200 1400" stroke="#8B7355" stroke-width="2" stroke-dasharray="10,5" fill="none" opacity="0.3"/>
+  <path d="M 1400 550 Q 900 900 600 1300" stroke="#8B7355" stroke-width="2" stroke-dasharray="10,5" fill="none" opacity="0.3"/>
+  
+  <!-- Decorative corner flourishes -->
+  <path d="M 100 100 Q 120 100 120 120" stroke="#C9A961" stroke-width="2" fill="none"/>
+  <path d="M 2900 100 Q 2880 100 2880 120" stroke="#C9A961" stroke-width="2" fill="none"/>
+  <path d="M 100 1900 Q 120 1900 120 1880" stroke="#C9A961" stroke-width="2" fill="none"/>
+  <path d="M 2900 1900 Q 2880 1900 2880 1880" stroke="#C9A961" stroke-width="2" fill="none"/>
+  
+  <!-- Aging effects and stains -->
+  <ellipse cx="800" cy="1200" rx="80" ry="60" fill="#8B7355" opacity="0.05"/>
+  <ellipse cx="2200" cy="800" rx="100" ry="70" fill="#8B7355" opacity="0.05"/>
+  <ellipse cx="1800" cy="1600" rx="90" ry="80" fill="#6B2C2C" opacity="0.03"/>
+</svg>
+

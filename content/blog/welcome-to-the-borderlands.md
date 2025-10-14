@@ -31,7 +31,7 @@ This isn't a traditional blog with definitive answers and polished conclusions. 
 
 ## The Aesthetic
 
-You might have noticed the design—parchment tones, ornate corners, Garamond typography. There's an intentional tension here between the classical and the contemporary. My friends call my fashion sense "desert lounge," and I suppose this extends to how I think and build too.
+You might have noticed the design—parchment tones, ornate corners, Garamond typography. There's an intentional tension here between the classical and the contemporary. 
 
 I'm fascinated by spaces that hold contradictions: modern technology rendered in vintage aesthetics, rigorous thinking expressed with poetic language, certainty and uncertainty existing side by side.
 
@@ -39,7 +39,7 @@ I'm fascinated by spaces that hold contradictions: modern technology rendered in
 
 Expect to find:
 
-- Essays on Russian literature, epistemology, and whatever else captures my attention
+- Essays on epistemology and whatever else captures my attention
 - Interactive mind maps exploring interconnected concepts
 - Technical experiments and code projects
 - Fragments and marginalia
@@ -48,5 +48,5 @@ Welcome to the borderlands. I'm glad you're here.
 
 ---
 
-*If you're curious about the technical details, this site is built with Next.js, styled with a custom dark academia palette, and uses Markmap for mind maps. The source is public on GitHub.*
+*If you're curious about the technical details, this site is built with Next.js, and uses Markmap for mind maps. The source is public on GitHub.*
 

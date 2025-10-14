@@ -11,7 +11,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: 'The Borderlands Atlas',
-    description: 'This very website - a Next.js personal site exploring the intersection of dark academia aesthetics and modern web technology.',
+    description: 'This very website - a Next.js personal site exploring the intersection of aesthetics and modern web technology.',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
     github: 'https://github.com/jacobdaviescam/The-Borderlands-Atlas',
     status: 'active',
