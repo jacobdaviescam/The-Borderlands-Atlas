@@ -97,7 +97,7 @@ body::after {
 /* Ensure content stays above background effects */
 body > * {
   position: relative;
-  z-index: 10;
+  z-index: 1;
 }
 
 

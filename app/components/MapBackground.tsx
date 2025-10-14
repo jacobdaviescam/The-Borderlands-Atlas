@@ -58,9 +58,10 @@ export default function MapBackground() {
         backgroundSize: `${position.scale * 100}%`,
         backgroundPosition: `${position.x} ${position.y}`,
         backgroundRepeat: 'no-repeat',
-        opacity: 0.8,
+        opacity: 0.25,
+        filter: 'sepia(0.4)',
         transition: 'all 1.2s cubic-bezier(0.4, 0, 0.2, 1)',
-        zIndex: 0
+        zIndex: -1
       }}
     />
   );
