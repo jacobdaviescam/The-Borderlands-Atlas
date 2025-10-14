@@ -41,7 +41,7 @@
     <rect x="210" y="810" width="480" height="380" rx="10" fill="none" stroke="#C9A961" stroke-width="1"/>
     <text x="450" y="980" font-family="serif" font-size="32" fill="#3D2817" text-anchor="middle" font-weight="700">THE LIBRARY</text>
     <text x="450" y="1020" font-family="serif" font-size="32" fill="#3D2817" text-anchor="middle" font-weight="700">QUARTER</text>
-    <text x="450" y="1055" font-family="serif" font-size="18" fill="#6B4423" text-anchor="middle" font-style="italic">Chronicles & Reflections</text>
+    <text x="450" y="1055" font-family="serif" font-size="18" fill="#6B4423" text-anchor="middle" font-style="italic">Chronicles &amp; Reflections</text>
     
     <!-- Books -->
     <g opacity="0.4">
