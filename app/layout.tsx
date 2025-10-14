@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { EB_Garamond } from "next/font/google";
 import "./globals.css";
-import MapBackground from "./components/MapBackground";
+import MiniMap from "./components/MiniMap";
 
 const garamond = EB_Garamond({
   subsets: ["latin"],
@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={garamond.className}>
-        <MapBackground />
+        <MiniMap />
         {children}
       </body>
     </html>
