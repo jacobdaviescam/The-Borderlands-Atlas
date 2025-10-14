@@ -52,15 +52,16 @@ export default function MapBackground() {
   
   return (
     <div
-      className="fixed inset-0 pointer-events-none z-0"
+      className="fixed inset-0 pointer-events-none"
       style={{
         backgroundImage: 'url(/borderlands-map.svg)',
         backgroundSize: `${position.scale * 100}%`,
         backgroundPosition: `${position.x} ${position.y}`,
         backgroundRepeat: 'no-repeat',
-        opacity: 0.12,
-        filter: 'sepia(0.3) blur(0.5px)',
-        transition: 'all 1.2s cubic-bezier(0.4, 0, 0.2, 1)'
+        opacity: 0.25,
+        filter: 'sepia(0.4) blur(0.3px)',
+        transition: 'all 1.2s cubic-bezier(0.4, 0, 0.2, 1)',
+        zIndex: 0
       }}
     />
   );

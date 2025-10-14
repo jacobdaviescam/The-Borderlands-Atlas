@@ -73,7 +73,7 @@ body::after {
   right: 0;
   bottom: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
   /* Layered gradients for richer atmosphere */
   background: 
     /* Center highlight - subtle parchment glow */
@@ -91,7 +91,7 @@ body::after {
 /* Ensure content stays above background effects */
 body > * {
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
 
