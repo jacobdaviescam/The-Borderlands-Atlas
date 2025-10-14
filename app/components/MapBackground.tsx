@@ -52,8 +52,14 @@ export default function MapBackground() {
   
   return (
     <div
-      className="fixed top-0 left-0 w-full h-screen pointer-events-none"
       style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        width: '100vw',
+        height: '100vh',
         backgroundImage: 'url(/borderlands-map.svg)',
         backgroundSize: `${position.scale * 100}%`,
         backgroundPosition: `${position.x} ${position.y}`,
@@ -61,7 +67,8 @@ export default function MapBackground() {
         opacity: 0.25,
         filter: 'sepia(0.4)',
         transition: 'all 1.2s cubic-bezier(0.4, 0, 0.2, 1)',
-        zIndex: -1
+        zIndex: -1,
+        pointerEvents: 'none'
       }}
     />
   );
