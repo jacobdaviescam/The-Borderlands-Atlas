@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={garamond.className}>
-        <MiniMap />
+        {/* <MiniMap /> */}
         {children}
       </body>
     </html>
