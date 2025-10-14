@@ -36,6 +36,11 @@ export default function MiniMap() {
   const currentRegion = getCurrentRegion();
   
   console.log('MiniMap rendered - Current region:', currentRegion, 'Is expanded:', isExpanded);
+  
+  // Debug expanded state
+  if (isExpanded) {
+    console.log('Full-screen map should be visible now!');
+  }
 
   return (
     <>
@@ -44,21 +49,20 @@ export default function MiniMap() {
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5, duration: 0.6 }}
-        className="fixed top-6 right-6 z-50 pointer-events-auto"
+        className="mini-map-container pointer-events-auto"
       >
       {/* Container with subtle border */}
       <div className="relative bg-parchment/95 backdrop-blur-sm border-2 border-gold/30 rounded-lg p-4 shadow-lg pointer-events-auto">
         {/* Expand button - More visible */}
         <button
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
+          onClick={() => {
             console.log('Expand button clicked!');
             setIsExpanded(true);
           }}
-          className="absolute -top-3 -left-3 w-8 h-8 bg-burgundy text-parchment rounded-full flex items-center justify-center hover:bg-brass transition-colors shadow-lg z-20 border-2 border-parchment cursor-pointer pointer-events-auto"
+          className="absolute -top-3 -left-3 w-8 h-8 bg-burgundy text-parchment rounded-full flex items-center justify-center hover:bg-brass transition-colors shadow-lg z-20 border-2 border-parchment cursor-pointer"
           aria-label="Expand map"
           title="Expand map to full screen"
+          type="button"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
