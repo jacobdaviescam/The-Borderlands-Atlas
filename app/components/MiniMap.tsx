@@ -37,22 +37,24 @@ export default function MiniMap() {
 
   return (
     <>
-      {/* Mini Map */}
+      {/* Mini Map - Fixed in top-right corner */}
       <motion.div
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5, duration: 0.6 }}
-        className="fixed top-6 right-6 z-40 group"
+        className="fixed top-6 right-6 z-40"
+        style={{ position: 'fixed', top: '24px', right: '24px' }}
       >
       {/* Container with subtle border */}
       <div className="relative bg-parchment/95 backdrop-blur-sm border-2 border-gold/30 rounded-lg p-4 shadow-lg">
-        {/* Expand button */}
+        {/* Expand button - More visible */}
         <button
           onClick={() => setIsExpanded(true)}
-          className="absolute -top-2 -left-2 w-6 h-6 bg-burgundy text-parchment rounded-full flex items-center justify-center hover:bg-brass transition-colors shadow-md z-10"
+          className="absolute -top-3 -left-3 w-8 h-8 bg-burgundy text-parchment rounded-full flex items-center justify-center hover:bg-brass transition-colors shadow-lg z-20 border-2 border-parchment"
           aria-label="Expand map"
+          title="Expand map to full screen"
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
           </svg>
         </button>
