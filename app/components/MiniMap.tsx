@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 
 interface Region {
@@ -25,6 +25,7 @@ const regions: Region[] = [
 export default function MiniMap() {
   const pathname = usePathname();
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
   
   const getCurrentRegion = () => {
     const basePath = pathname.split('/')[1] || '';
@@ -35,14 +36,26 @@ export default function MiniMap() {
   const currentRegion = getCurrentRegion();
 
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: 0.5, duration: 0.6 }}
-      className="fixed top-6 right-6 z-50 group"
-    >
+    <>
+      {/* Mini Map */}
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+        className="fixed top-6 right-6 z-40 group"
+      >
       {/* Container with subtle border */}
       <div className="relative bg-parchment/95 backdrop-blur-sm border-2 border-gold/30 rounded-lg p-4 shadow-lg">
+        {/* Expand button */}
+        <button
+          onClick={() => setIsExpanded(true)}
+          className="absolute -top-2 -left-2 w-6 h-6 bg-burgundy text-parchment rounded-full flex items-center justify-center hover:bg-brass transition-colors shadow-md z-10"
+          aria-label="Expand map"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+          </svg>
+        </button>
         {/* Title */}
         <div className="text-xs uppercase tracking-widest text-brass font-semibold mb-3 text-center">
           The Borderlands
@@ -198,6 +211,214 @@ export default function MiniMap() {
         </div>
       </div>
     </motion.div>
+
+      {/* Full-Screen Expanded Map */}
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-deep-brown/95 backdrop-blur-md z-50 flex items-center justify-center p-8"
+            onClick={() => setIsExpanded(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25 }}
+              className="relative bg-parchment border-4 border-gold/40 rounded-xl p-8 max-w-5xl w-full shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close button */}
+              <button
+                onClick={() => setIsExpanded(false)}
+                className="absolute top-4 right-4 w-10 h-10 bg-burgundy text-parchment rounded-full flex items-center justify-center hover:bg-brass transition-colors shadow-lg z-10"
+                aria-label="Close map"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              </button>
+
+              {/* Map Title */}
+              <div className="text-center mb-8">
+                <h2 className="text-4xl font-bold text-burgundy mb-2">The Borderlands Atlas</h2>
+                <p className="text-brass italic">Navigate the territories of knowledge</p>
+              </div>
+
+              {/* Large SVG Map */}
+              <svg 
+                width="100%" 
+                height="500" 
+                viewBox="0 0 800 500"
+                className="overflow-visible"
+              >
+                {/* Decorative border */}
+                <rect 
+                  x="20" 
+                  y="20" 
+                  width="760" 
+                  height="460" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  className="text-gold/30"
+                />
+                
+                {/* Connection lines */}
+                <g className="text-gold/20" strokeWidth="3">
+                  <line x1="400" y1="250" x2="160" y2="275" stroke="currentColor" strokeDasharray="8,8" />
+                  <line x1="400" y1="250" x2="400" y2="120" stroke="currentColor" strokeDasharray="8,8" />
+                  <line x1="400" y1="250" x2="640" y2="250" stroke="currentColor" strokeDasharray="8,8" />
+                  <line x1="400" y1="250" x2="400" y2="400" stroke="currentColor" strokeDasharray="8,8" />
+                </g>
+
+                {/* Regions - Larger and more interactive */}
+                {regions.map((region) => {
+                  const isActive = currentRegion === region.id;
+                  const isHovered = hoveredRegion === region.id;
+                  
+                  // Scale coordinates for larger map
+                  const x = region.x * 4;
+                  const y = region.y * 2.5;
+                  
+                  return (
+                    <Link key={region.id} href={region.path}>
+                      <g
+                        onMouseEnter={() => setHoveredRegion(region.id)}
+                        onMouseLeave={() => setHoveredRegion(null)}
+                        className="cursor-pointer transition-all duration-300"
+                        onClick={() => setIsExpanded(false)}
+                      >
+                        {region.shape === 'circle' ? (
+                          <>
+                            {/* Pulse effect for active region */}
+                            {isActive && (
+                              <circle
+                                cx={x}
+                                cy={y}
+                                r="70"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                                className="text-burgundy animate-ping"
+                                opacity="0.4"
+                              />
+                            )}
+                            <circle
+                              cx={x}
+                              cy={y}
+                              r="50"
+                              fill="currentColor"
+                              className={`transition-all ${
+                                isActive 
+                                  ? 'text-burgundy' 
+                                  : isHovered 
+                                  ? 'text-brass' 
+                                  : 'text-gold/50'
+                              }`}
+                              opacity={isActive ? 1 : isHovered ? 0.9 : 0.6}
+                            />
+                            {isActive && (
+                              <circle
+                                cx={x}
+                                cy={y}
+                                r="20"
+                                fill="currentColor"
+                                className="text-parchment"
+                              />
+                            )}
+                          </>
+                        ) : (
+                          <>
+                            {/* Pulse effect for active region */}
+                            {isActive && (
+                              <rect
+                                x={x - 70}
+                                y={y - 40}
+                                width="140"
+                                height="80"
+                                rx="8"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                                className="text-burgundy animate-ping"
+                                opacity="0.4"
+                              />
+                            )}
+                            <rect
+                              x={x - 50}
+                              y={y - 25}
+                              width="100"
+                              height="50"
+                              rx="6"
+                              fill="currentColor"
+                              className={`transition-all ${
+                                isActive 
+                                  ? 'text-burgundy' 
+                                  : isHovered 
+                                  ? 'text-brass' 
+                                  : 'text-gold/50'
+                              }`}
+                              opacity={isActive ? 1 : isHovered ? 0.9 : 0.6}
+                            />
+                            {isActive && (
+                              <rect
+                                x={x - 20}
+                                y={y - 10}
+                                width="40"
+                                height="20"
+                                rx="3"
+                                fill="currentColor"
+                                className="text-parchment"
+                              />
+                            )}
+                          </>
+                        )}
+                        
+                        {/* Region labels */}
+                        <text
+                          x={x}
+                          y={y + 80}
+                          textAnchor="middle"
+                          className={`font-semibold transition-all ${
+                            isActive || isHovered ? 'text-burgundy' : 'text-deep-brown'
+                          }`}
+                          fontSize="18"
+                        >
+                          {region.name}
+                        </text>
+                      </g>
+                    </Link>
+                  );
+                })}
+              </svg>
+
+              {/* Legend */}
+              <div className="mt-6 flex justify-center gap-8 text-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 bg-burgundy rounded-full"></div>
+                  <span className="text-deep-brown">Current Location</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 bg-brass rounded-full opacity-60"></div>
+                  <span className="text-deep-brown">Available Territory</span>
+                </div>
+              </div>
+
+              {/* Current location info */}
+              <div className="mt-6 text-center p-4 bg-burgundy/10 border border-gold/30 rounded-lg">
+                <p className="text-burgundy font-semibold">You are currently in:</p>
+                <p className="text-2xl font-bold text-deep-brown mt-1">
+                  {regions.find(r => r.id === currentRegion)?.name || 'Central Plaza'}
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
