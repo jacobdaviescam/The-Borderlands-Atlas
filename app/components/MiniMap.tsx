@@ -34,6 +34,8 @@ export default function MiniMap() {
   };
   
   const currentRegion = getCurrentRegion();
+  
+  console.log('MiniMap rendered - Current region:', currentRegion, 'Is expanded:', isExpanded);
 
   return (
     <>
@@ -42,17 +44,23 @@ export default function MiniMap() {
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5, duration: 0.6 }}
-        className="fixed top-6 right-6 z-40"
-        style={{ position: 'fixed', top: '24px', right: '24px' }}
+        className="fixed top-6 right-6 z-50 pointer-events-auto"
+        style={{ position: 'fixed', top: '24px', right: '24px', pointerEvents: 'auto' }}
       >
       {/* Container with subtle border */}
-      <div className="relative bg-parchment/95 backdrop-blur-sm border-2 border-gold/30 rounded-lg p-4 shadow-lg">
+      <div className="relative bg-parchment/95 backdrop-blur-sm border-2 border-gold/30 rounded-lg p-4 shadow-lg pointer-events-auto">
         {/* Expand button - More visible */}
         <button
-          onClick={() => setIsExpanded(true)}
-          className="absolute -top-3 -left-3 w-8 h-8 bg-burgundy text-parchment rounded-full flex items-center justify-center hover:bg-brass transition-colors shadow-lg z-20 border-2 border-parchment"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Expand button clicked!');
+            setIsExpanded(true);
+          }}
+          className="absolute -top-3 -left-3 w-8 h-8 bg-burgundy text-parchment rounded-full flex items-center justify-center hover:bg-brass transition-colors shadow-lg z-20 border-2 border-parchment cursor-pointer"
           aria-label="Expand map"
           title="Expand map to full screen"
+          style={{ pointerEvents: 'auto', cursor: 'pointer' }}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
@@ -69,6 +77,7 @@ export default function MiniMap() {
           height="200" 
           viewBox="0 0 200 200"
           className="overflow-visible"
+          style={{ pointerEvents: 'auto' }}
         >
           {/* Decorative border */}
           <rect 
@@ -96,11 +105,12 @@ export default function MiniMap() {
             const isHovered = hoveredRegion === region.id;
             
             return (
-              <Link key={region.id} href={region.path}>
+              <Link key={region.id} href={region.path} style={{ pointerEvents: 'auto' }}>
                 <g
                   onMouseEnter={() => setHoveredRegion(region.id)}
                   onMouseLeave={() => setHoveredRegion(null)}
                   className="cursor-pointer transition-all duration-300"
+                  style={{ pointerEvents: 'auto' }}
                 >
                   {region.shape === 'circle' ? (
                     <>
