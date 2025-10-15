@@ -5,6 +5,11 @@ import remarkGfm from 'remark-gfm';
 import { motion } from 'framer-motion';
 import { Components } from 'react-markdown';
 
+interface CodeProps {
+  inline?: boolean;
+  children?: React.ReactNode;
+}
+
 interface MarkdownContentProps {
   content: string;
 }
@@ -74,7 +79,7 @@ export default function MarkdownContent({ content }: MarkdownContentProps) {
         {children}
       </li>
     ),
-    code: ({ inline, children }) => (
+    code: ({ inline, children }: CodeProps) => (
       inline ? (
         <code className="bg-parchment-dark px-2 py-1 rounded text-burgundy font-mono text-base">
           {children}

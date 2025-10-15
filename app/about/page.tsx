@@ -31,8 +31,6 @@ export default function AboutPage() {
           <p className="leading-relaxed">
             I find myself drawn to the spaces between disciplines, between certainty and doubt, 
             between the ancient wisdom of classical literature and the cutting edge of modern technology. 
-            My friends describe my fashion as &ldquo;desert lounge&rdquo;—and perhaps that aesthetic 
-            extends to how I think as well.
           </p>
 
           <p className="leading-relaxed">
