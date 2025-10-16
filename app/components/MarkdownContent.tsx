@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { motion } from 'framer-motion';
 import { Components } from 'react-markdown';
+import MermaidDiagram from './MermaidDiagram';
 
 interface CodeProps {
   inline?: boolean;
@@ -79,8 +80,20 @@ export default function MarkdownContent({ content }: MarkdownContentProps) {
         {children}
       </li>
     ),
-    code: ({ inline, children }: CodeProps) => (
-      inline ? (
+    code: ({ inline, children, className }: CodeProps & { className?: string }) => {
+      console.log('Code block className:', className);
+      console.log('Code block children:', children);
+      console.log('Code block inline:', inline);
+      
+      const isMermaid = className?.includes('language-mermaid');
+      console.log('Is Mermaid:', isMermaid);
+      
+      if (isMermaid && !inline) {
+        console.log('Rendering Mermaid diagram');
+        return <MermaidDiagram content={children as string} />;
+      }
+      
+      return inline ? (
         <code className="bg-parchment-dark px-2 py-1 rounded text-burgundy font-mono text-base">
           {children}
         </code>
@@ -88,8 +101,8 @@ export default function MarkdownContent({ content }: MarkdownContentProps) {
         <code className="block bg-parchment-dark p-4 rounded border border-gold/20 text-burgundy font-mono text-sm overflow-x-auto my-4">
           {children}
         </code>
-      )
-    ),
+      );
+    },
     hr: () => (
       <hr className="border-t border-gold/30 my-8" />
     ),

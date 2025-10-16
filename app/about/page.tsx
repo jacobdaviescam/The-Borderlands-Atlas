@@ -36,13 +36,8 @@ export default function AboutPage() {
           <p className="leading-relaxed">
             Picture a study within a greenhouse: bookshelves spanning from Dostoevsky to deep learning, 
             ivy creeping over leather-bound volumes, an old map connecting disparate ideas, and a drinks 
-            globe with carefully crafted cocktails nearby. This site captures that aesthetic—the scholar&apos;s 
+            globe with carefully crafted cocktails nearby. This site aims to capture that aesthetic. It is the scholar&apos;s 
             refuge where plants and books coexist, where a Negroni sits beside ancient philosophy.
-          </p>
-
-          <p className="leading-relaxed">
-            Currently exploring: Russian literature, the art of cartography, sommelier craft, fashion design, 
-            and building at the intersection of AI and human creativity.
           </p>
 
           <div className="pt-8 mt-12 border-t border-gold/30">
