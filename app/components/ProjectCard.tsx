@@ -33,10 +33,31 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           </span>
         </div>
 
+        {/* Meta information: year and role */}
+        {(project.year || project.role) && (
+          <div className="flex gap-4 text-sm text-text-secondary">
+            {project.year && (
+              <span className="text-brass">{project.year}</span>
+            )}
+            {project.role && (
+              <span>{project.role}</span>
+            )}
+          </div>
+        )}
+
         {/* Description */}
         <p className="text-lg text-deep-brown leading-relaxed">
           {project.description}
         </p>
+
+        {/* Highlights */}
+        {project.highlights && project.highlights.length > 0 && (
+          <ul className="list-disc list-inside space-y-1 text-deep-brown ml-2">
+            {project.highlights.map((highlight, idx) => (
+              <li key={idx} className="text-sm">{highlight}</li>
+            ))}
+          </ul>
+        )}
 
         {/* Tags */}
         {project.tags && project.tags.length > 0 && (
