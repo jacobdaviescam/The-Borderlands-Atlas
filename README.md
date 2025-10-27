@@ -10,7 +10,6 @@ This site lives at the intersection of classic and contemporary:
 - **Typography**: EB Garamond for that timeless, scholarly feel
 - **Color Palette**: Rich burgundy, forest greens, warm parchment tones with gold/brass accents
 - **Layout**: Clean centered content with ornate decorative elements at the edges
-- **Aesthetic**: "Desert lounge" meets Russian literature meets modern tech
 
 ## 🗺️ Structure
 
@@ -43,32 +42,6 @@ excerpt: "A brief description"
 
 Your content here...
 ```
-
-### Mind Maps
-
-Add markdown files to `content/atlas/` using standard markdown format. Markmap will convert them to interactive visualizations.
-
-## 🚀 Getting Started
-
-```bash
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-
-# Build for production
-npm run build
-```
-
-Visit [http://localhost:3000](http://localhost:3000) to see your site.
-
-## 🌐 Deployment
-
-This site can be deployed to:
-- [Vercel](https://vercel.com) (recommended for Next.js)
-- [Netlify](https://netlify.com)
-- [GitHub Pages](https://pages.github.com) (with static export)
 
 ## 📚 Philosophy
 
