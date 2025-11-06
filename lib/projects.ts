@@ -16,6 +16,13 @@ export const projects: Project[] = [
     github: 'https://github.com/jacobdaviescam/The-Borderlands-Atlas',
     status: 'active',
   },
+  {
+    title: 'ARENA Capstone: Thought Anchors',
+    description: 'White-box AI safety research extending the Thought Anchors methodology from reasoning analysis to practical intervention. Demonstrates that targeted activation patching at critical reasoning layers can prevent harmful AI decisions while preserving general capabilities.',
+    tags: ['AI Safety', 'Interpretability', 'Activation Patching', 'PyTorch'],
+    github: 'https://github.com/jacobdaviescam/ARENA-Capstone',
+    status: 'completed',
+  },
   // Add more projects here...
 ];
 

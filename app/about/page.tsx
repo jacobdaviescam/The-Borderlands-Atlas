@@ -6,8 +6,7 @@ import { motion } from 'framer-motion';
 export default function AboutPage() {
   return (
     <PageLayout 
-      title="The Cartographer" 
-      subtitle="About this endeavor and its author"
+      title="About Me"
     >
       <div className="prose prose-lg max-w-3xl mx-auto">
         <motion.div
@@ -17,28 +16,32 @@ export default function AboutPage() {
           className="space-y-6 text-deep-brown"
         >
           <p className="text-xl leading-relaxed">
-            This space exists at the intersection—a cartographic journal for someone 
-            perpetually stationed in the borderlands of knowledge.
+            This is a space for thinking through ideas at the edges of what I understand - where 
+            technical work meets broader questions about how technology shapes our world.
           </p>
 
-          <div className="border-l-2 border-gold/50 pl-6 my-8 italic text-text-secondary">
-            <p>
-              &ldquo;The edge of knowledge is where the most interesting work happens. 
-              It&apos;s uncomfortable, uncertain, and utterly essential.&rdquo;
+          <div className="pt-8 mt-12 border-t border-gold/30">
+            <h2 className="text-2xl font-semibold text-burgundy mb-4">
+              My Work
+            </h2>
+            <p className="leading-relaxed">
+              My background is in computational linguistics and AI evaluation. I studied how language 
+              models generalise across domains at Cambridge, built evaluation frameworks for AI systems 
+              at LinkedIn, and trained in technical AI safety (mechinterp, RL, evals) at ARENA. The 
+              technical work taught me how to measure what AI systems can do. But it also made me curious 
+              about what happens to human capability when AI handles increasingly complex cognitive work.
+            </p>
+            <p className="leading-relaxed mt-4">
+              I work on AI evaluation and safety research, but I try to think about AI deployment broadly as I think AI risk will likely be subtle and gradual rather than sudden and obvious.
+            </p>
+            <p className="leading-relaxed mt-4">
+              That means looking at the full landscape: technical safety work like evaluation frameworks 
+              and interpretability methods. Economic questions about business models and how advertising 
+              might distort training objectives. Developmental questions about how AI assistance affects 
+              skill acquisition and when tools help versus replace capability. Structural questions about 
+              regulatory approaches and how deployment patterns create winners and losers.
             </p>
           </div>
-
-          <p className="leading-relaxed">
-            I find myself drawn to the spaces between disciplines, between certainty and doubt, 
-            between the ancient wisdom of classical literature and the cutting edge of modern technology. 
-          </p>
-
-          <p className="leading-relaxed">
-            Picture a study within a greenhouse: bookshelves spanning from Dostoevsky to deep learning, 
-            ivy creeping over leather-bound volumes, an old map connecting disparate ideas, and a drinks 
-            globe with carefully crafted cocktails nearby. This site aims to capture that aesthetic. It is the scholar&apos;s 
-            refuge where plants and books coexist, where a Negroni sits beside ancient philosophy.
-          </p>
 
           <div className="pt-8 mt-12 border-t border-gold/30">
             <h2 className="text-2xl font-semibold text-burgundy mb-4">
@@ -47,15 +50,15 @@ export default function AboutPage() {
             <ul className="space-y-3 text-lg">
               <li className="flex items-start gap-3">
                 <span className="text-brass mt-1">•</span>
-                <span><strong>Essays</strong> — Long-form explorations and fragments</span>
+                <span><strong>Essays</strong> — Writing on AI, technology, and related ideas</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-brass mt-1">•</span>
-                <span><strong>Mind Maps</strong> — Visual atlases of interconnected ideas</span>
+                <span><strong>Mind Maps</strong> — Visual connections between concepts</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-brass mt-1">•</span>
-                <span><strong>Code & Projects</strong> — Technical experiments and creations</span>
+                <span><strong>Code & Projects</strong> — Technical experiments and tools</span>
               </li>
             </ul>
           </div>
