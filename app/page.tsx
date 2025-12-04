@@ -56,11 +56,14 @@ export default function Home() {
               I&apos;m Jacob Davies. I work on AI safety, building monitoring infrastructure 
               that defends against jailbreaks and accidental misalignment and ensures deployed AI systems remain safe 
               and controllable.
-              
+            
+            </p>
+            <p>
               This site maps what I&apos;m learning, building, and thinking about at the intersection of 
               AI capabilities and safety - the borderlands where systems become powerful enough to matter 
               but not yet safe enough to trust.
             </p>
+              
           </motion.div>
 
           {/* Navigation */}
