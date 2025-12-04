@@ -25,14 +25,12 @@ export default function AboutPage() {
               My Work
             </h2>
             <p className="leading-relaxed">
-              My background is in computational linguistics and AI evaluation. I studied how language 
-              models generalise across domains at Cambridge, built evaluation frameworks for AI systems 
-              at LinkedIn, and trained in technical AI safety (mechinterp, RL, evals) at ARENA. The 
-              technical work taught me how to measure what AI systems can do. But it also made me curious 
-              about what happens to human capability when AI handles increasingly complex cognitive work.
+              My background is in NLP and ML. I studied how language 
+              models generalise across domains at the Univeristy of Cambridge(BA) and the University of Edinburgh (MSc), built evaluation frameworks for AI systems 
+              at LinkedIn, and trained in technical AI safety (mechinterp, RL, evals) at ARENA. I have followed the trajectory of AI capabilities in research and industry and know that safety infrastructure isn't keeping pace.  
             </p>
             <p className="leading-relaxed mt-4">
-              I work on AI evaluation and safety research, but I try to think about AI deployment broadly as I think AI risk will likely be subtle and gradual rather than sudden and obvious.
+              I work on AI evaluation and safety research, but I try to think about AI deployment broadly as I think AI risk is just as likely to be subtle and gradual as sudden and obvious.
             </p>
             <p className="leading-relaxed mt-4">
               That means looking at the full landscape: technical safety work like evaluation frameworks 
