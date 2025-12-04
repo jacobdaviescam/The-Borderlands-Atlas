@@ -53,13 +53,12 @@ export default function Home() {
             className="max-w-2xl mx-auto space-y-6 text-lg text-deep-brown"
           >
             <p>
-              I&apos;m Jacob Davies. I work on AI safety—building monitoring infrastructure 
+              I&apos;m Jacob Davies. I work on AI safety, building monitoring infrastructure 
               that defends against jailbreaks and accidental misalignment and ensures deployed AI systems remain safe 
               and controllable.
-            </p>
-            <p className="text-base text-text-secondary italic">
+              
               This site maps what I&apos;m learning, building, and thinking about at the intersection of 
-              AI capabilities and safety—the borderlands where systems become powerful enough to matter 
+              AI capabilities and safety - the borderlands where systems become powerful enough to matter 
               but not yet safe enough to trust.
             </p>
           </motion.div>
@@ -76,6 +75,33 @@ export default function Home() {
             <NavLink href="/code" label="Code & Projects" icon="code" />
             <NavLink href="/about" label="About" icon="glass" />
           </motion.nav>
+
+          {/* Social Links */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.0, duration: 0.8 }}
+            className="flex justify-center items-center gap-6 pt-8"
+          >
+            <a
+              href="https://www.linkedin.com/in/jacob-davies-5199b419b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 text-burgundy/70 hover:text-burgundy transition-colors"
+            >
+              <motion.svg 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="currentColor"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.2 }}
+              >
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </motion.svg>
+              <span className="text-sm font-medium">LinkedIn</span>
+            </a>
+          </motion.div>
         </motion.div>
       </div>
     </main>
