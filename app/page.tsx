@@ -41,7 +41,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              Charting the territory between knowing and unknowing
+              Charting the territory between impact and safety
             </motion.p>
           </div>
 
@@ -53,14 +53,14 @@ export default function Home() {
             className="max-w-2xl mx-auto space-y-6 text-lg text-deep-brown"
           >
             <p>
-              Welcome to the borderlands—that liminal space where certainty fades and curiosity begins. 
-              This is a cartographer&apos;s journal of sorts, mapping the edges of what I know and planning 
-              expeditions into what I don&apos;t.
+              I&apos;m Jacob Davies. I work on AI safety—building monitoring infrastructure 
+              that defends against jailbreaks and accidental misalignment and ensures deployed AI systems remain safe 
+              and controllable.
             </p>
-            <p>
-              Here you&apos;ll find essays, mindmaps, explorations, and fragments of thought from someone 
-              perpetually stationed at the boundary between disciplines, between questions and answers, 
-              between the classical and the contemporary.
+            <p className="text-base text-text-secondary italic">
+              This site maps what I&apos;m learning, building, and thinking about at the intersection of 
+              AI capabilities and safety—the borderlands where systems become powerful enough to matter 
+              but not yet safe enough to trust.
             </p>
           </motion.div>
 

@@ -23,6 +23,13 @@ export const projects: Project[] = [
     github: 'https://github.com/jacobdaviescam/ARENA-Capstone',
     status: 'completed',
   },
+  {
+    title: 'SLP Dissertation: Dependency Parsing Research',
+    description: 'MSc dissertation project. Features novel semantic-to-syntactic conversion algorithms, systematic evaluation of neural parser architectures, and visualization framework.',
+    tags: ['NLP', 'Dependency Parsing', 'Python', 'PyTorch', 'Neural Networks', 'Data Visualization', 'Research'],
+    github: 'https://github.com/jacobdaviescam/SLPDissertation',
+    status: 'completed',
+  },
   // Add more projects here...
 ];
 
