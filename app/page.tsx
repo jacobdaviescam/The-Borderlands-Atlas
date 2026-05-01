@@ -74,7 +74,7 @@ export default function Home() {
             className="flex flex-wrap justify-center gap-6 pt-8"
           >
             <NavLink href="/blog" label="Essays & Thoughts" icon="book" />
-            <NavLink href="/atlas" label="Mind Maps" icon="map" />
+            <NavLink href="/atlas" label="The Atlas" icon="map" />
             <NavLink href="/code" label="Code & Projects" icon="code" />
             <NavLink href="/about" label="About" icon="glass" />
           </motion.nav>
