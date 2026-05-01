@@ -1,60 +1,140 @@
-import { getMindMapBySlug, getAllMindMaps } from '@/lib/atlas';
-import PageLayout from '@/app/components/PageLayout';
-import MarkmapViewer from '@/app/components/Markmap';
-import MarkdownWithMermaid from '@/app/components/MarkdownWithMermaid';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import PageLayout from '@/app/components/PageLayout';
+import TopicContent from '@/app/components/TopicContent';
+import { getAllTopics, getTopicBySlug, REGIONS } from '@/lib/atlas';
+import { getPostsByTopic } from '@/lib/blog';
 
-interface AtlasPageProps {
+interface AtlasTopicPageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  const maps = getAllMindMaps();
-  return maps.map((map) => ({
-    slug: map.slug,
-  }));
+  const topics = getAllTopics();
+  return topics.map((t) => ({ slug: t.slug }));
 }
 
-export default async function AtlasDetailPage({ params }: AtlasPageProps) {
-  const { slug } = await params;
-  const map = getMindMapBySlug(slug);
+const STATUS_LABEL = {
+  exploring: 'Exploring',
+  developing: 'Developing',
+  settled: 'Settled',
+} as const;
 
-  if (!map) {
+function formatDate(date?: string): string | null {
+  if (!date) return null;
+  const parsed = Date.parse(date);
+  if (Number.isNaN(parsed)) return date;
+  return new Date(parsed).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+// Strip the trailing "Related writing" and "Related regions" sections from the
+// raw markdown — those are rendered programmatically below from blog posts and
+// frontmatter so the page can stay live without manual editing.
+function stripAutoSections(content: string): string {
+  return content.replace(/##\s+Related writing[\s\S]*?(?=##|$)/i, '')
+    .replace(/##\s+Related regions[\s\S]*?(?=##|$)/i, '')
+    .trimEnd();
+}
+
+export default async function AtlasTopicPage({ params }: AtlasTopicPageProps) {
+  const { slug } = await params;
+  const topic = getTopicBySlug(slug);
+
+  if (!topic) {
     notFound();
   }
 
+  const allTopics = getAllTopics();
+  const region = REGIONS.find((r) => r.id === topic.region);
+  const relatedPosts = getPostsByTopic(topic.slug);
+  const relatedTopics = topic.related
+    .map((relSlug) => allTopics.find((t) => t.slug === relSlug))
+    .filter((t): t is NonNullable<typeof t> => Boolean(t));
+
+  const lastReviewed = formatDate(topic.lastReviewed);
+  const lastUpdate = formatDate(topic.lastSubstantiveUpdate);
+
   return (
-    <PageLayout title={map.title} subtitle={map.description}>
-      <div className="max-w-5xl mx-auto space-y-8">
-        {/* Description if available */}
-        {map.description && (
-          <p className="text-lg text-center text-text-secondary italic max-w-2xl mx-auto">
-            {map.description}
-          </p>
-        )}
-
-        {/* Interactive Markmap or Markdown with Mermaid */}
-        {slug === 'borderlands-radial-mindmap' ? (
-          <MarkdownWithMermaid content={map.content} />
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-lg text-text-secondary italic">
-              Mindmap visualization temporarily disabled
-            </p>
-            <div className="mt-4 p-6 bg-parchment-dark/50 rounded-lg border border-gold/20">
-              <pre className="text-sm text-deep-brown whitespace-pre-wrap text-left">
-                {map.content}
-              </pre>
-            </div>
-          </div>
-        )}
-
-        {/* Instructions */}
-        <div className="text-center text-sm text-text-secondary pt-8 border-t border-gold/20">
-          <p>Click nodes to expand/collapse • Drag to pan • Scroll to zoom</p>
+    <PageLayout title={topic.title} subtitle={topic.tagline}>
+      <article className="max-w-3xl mx-auto">
+        {/* Meta strip */}
+        <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-xs uppercase tracking-widest text-text-secondary mb-12">
+          {region && (
+            <span className="text-burgundy font-medium">{region.label}</span>
+          )}
+          <span className="text-gold/60">·</span>
+          <span className="text-brass border border-brass/40 px-2 py-0.5">
+            {STATUS_LABEL[topic.status]}
+          </span>
+          {lastReviewed && (
+            <>
+              <span className="text-gold/60">·</span>
+              <span>Last reviewed {lastReviewed}</span>
+            </>
+          )}
+          {lastUpdate && lastUpdate !== lastReviewed && (
+            <>
+              <span className="text-gold/60">·</span>
+              <span>Last update {lastUpdate}</span>
+            </>
+          )}
         </div>
-      </div>
+
+        {/* Body */}
+        <TopicContent content={stripAutoSections(topic.content)} />
+
+        {/* Related writing — auto-populated from /blog */}
+        <section className="mt-12">
+          <h2 className="text-base font-semibold text-burgundy mt-12 mb-5 pb-2 border-b border-gold/40 uppercase tracking-wider">
+            Related writing
+          </h2>
+          {relatedPosts.length > 0 ? (
+            <ul className="space-y-3">
+              {relatedPosts.map((post) => (
+                <li key={post.slug} className="text-lg">
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="text-brass border-b border-brass/30 hover:text-burgundy hover:border-burgundy transition-colors"
+                  >
+                    {post.title}
+                  </Link>
+                  {post.excerpt && (
+                    <span className="text-deep-brown/80 ml-2">— {post.excerpt}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-text-secondary italic">
+              No essays tagged with this topic yet.
+            </p>
+          )}
+        </section>
+
+        {/* Related regions — from frontmatter */}
+        {relatedTopics.length > 0 && (
+          <section className="mt-12">
+            <h2 className="text-base font-semibold text-burgundy mt-12 mb-5 pb-2 border-b border-gold/40 uppercase tracking-wider">
+              Related regions
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {relatedTopics.map((rel) => (
+                <Link
+                  key={rel.slug}
+                  href={`/atlas/${rel.slug}`}
+                  className="text-sm px-3 py-1 border border-gold/40 text-burgundy hover:border-burgundy hover:bg-cream/40 transition-colors"
+                >
+                  {rel.title}
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+      </article>
     </PageLayout>
   );
 }
-

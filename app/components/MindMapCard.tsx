@@ -2,7 +2,12 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { MindMap } from '@/lib/atlas';
+interface MindMap {
+  slug: string;
+  title: string;
+  description?: string;
+  content: string;
+}
 
 interface MindMapCardProps {
   map: MindMap;

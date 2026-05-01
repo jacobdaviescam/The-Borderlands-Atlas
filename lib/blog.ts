@@ -10,6 +10,7 @@ export interface BlogPost {
   date: string;
   excerpt: string;
   tags?: string[];
+  topics?: string[];
   content: string;
   pairsWith?: {
     book?: string;
@@ -38,6 +39,7 @@ export function getAllPosts(): BlogPost[] {
         date: data.date || '',
         excerpt: data.excerpt || '',
         tags: data.tags || [],
+        topics: data.topics || [],
         content,
         pairsWith: data.pairsWith || undefined,
       };
@@ -63,6 +65,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
       date: data.date || '',
       excerpt: data.excerpt || '',
       tags: data.tags || [],
+      topics: data.topics || [],
       content,
       pairsWith: data.pairsWith || undefined,
     };
@@ -71,3 +74,6 @@ export function getPostBySlug(slug: string): BlogPost | null {
   }
 }
 
+export function getPostsByTopic(topicSlug: string): BlogPost[] {
+  return getAllPosts().filter((p) => p.topics?.includes(topicSlug));
+}
