@@ -58,8 +58,7 @@ export default function Home() {
             </p>
             <p>
               This site maps what I&apos;m learning, building, and thinking about at the intersection of 
-              AI capabilities and safety - the borderlands where systems become powerful enough to matter 
-              but not yet safe enough to trust.
+              different AI safety fields. I think of the AI safety landscape as 'Borderlands': there is a lot of territory to explore, there is a lot of danger, and the best way forward is transparent mapping of the territory.
             </p>
               
           </motion.div>
