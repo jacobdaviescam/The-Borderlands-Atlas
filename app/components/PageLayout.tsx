@@ -8,9 +8,17 @@ interface PageLayoutProps {
   children: ReactNode;
   title: string;
   subtitle?: string;
+  backHref?: string;
+  backLabel?: string;
 }
 
-export default function PageLayout({ children, title, subtitle }: PageLayoutProps) {
+export default function PageLayout({
+  children,
+  title,
+  subtitle,
+  backHref = '/',
+  backLabel = 'Return to Atlas',
+}: PageLayoutProps) {
   return (
     <main className="min-h-screen relative">
       {/* Clean Art Deco top border */}
@@ -87,22 +95,22 @@ export default function PageLayout({ children, title, subtitle }: PageLayoutProp
           animate={{ opacity: 1, x: 0 }}
           className="mb-12"
         >
-          <Link 
-            href="/"
+          <Link
+            href={backHref}
             className="inline-flex items-center gap-2 text-burgundy hover:text-brass transition-colors group"
           >
-            <svg 
-              width="20" 
-              height="20" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
               strokeWidth="2"
               className="transform group-hover:-translate-x-1 transition-transform"
             >
               <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
-            <span>Return to Atlas</span>
+            <span>{backLabel}</span>
           </Link>
         </motion.div>
 

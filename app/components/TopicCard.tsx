@@ -10,9 +10,16 @@ interface TopicCardProps {
 }
 
 const STATUS_LABEL: Record<Topic['status'], string> = {
-  exploring: 'Exploring',
+  exploring: 'Stub',
   developing: 'Developing',
   settled: 'Settled',
+};
+
+const STATUS_PILL_CLASS: Record<Topic['status'], string> = {
+  // Dashed border + muted text reads as "placeholder, not finished"
+  exploring: 'text-text-secondary/70 border border-dashed border-text-secondary/40',
+  developing: 'text-brass border border-brass/40',
+  settled: 'text-forest border border-forest/40',
 };
 
 function isStale(date?: string): boolean {
@@ -37,6 +44,7 @@ function formatDate(date?: string): string | null {
 export default function TopicCard({ topic, index }: TopicCardProps) {
   const stale = isStale(topic.lastSubstantiveUpdate);
   const updateLabel = formatDate(topic.lastSubstantiveUpdate);
+  const isStub = topic.status === 'exploring';
 
   return (
     <motion.article
@@ -47,22 +55,43 @@ export default function TopicCard({ topic, index }: TopicCardProps) {
     >
       <Link
         href={`/atlas/${topic.slug}`}
-        className="block h-full p-5 border border-gold/30 hover:border-gold transition-colors duration-300 bg-cream/30 hover:bg-cream/60"
+        className={`block h-full p-5 transition-colors duration-300 bg-cream/30 hover:bg-cream/60 ${
+          isStub
+            ? 'border border-dashed border-gold/30 hover:border-gold/70'
+            : 'border border-gold/30 hover:border-gold'
+        }`}
       >
         <div className="flex items-start justify-between gap-3 mb-2">
-          <h3 className="text-xl font-semibold text-burgundy group-hover:text-brass transition-colors leading-tight">
+          <h3
+            className={`text-xl font-semibold leading-tight transition-colors ${
+              isStub
+                ? 'text-burgundy/70 group-hover:text-burgundy italic'
+                : 'text-burgundy group-hover:text-brass'
+            }`}
+          >
             {topic.title}
           </h3>
-          <span className="shrink-0 text-[10px] uppercase tracking-widest text-brass border border-brass/40 px-2 py-0.5">
+          <span
+            className={`shrink-0 text-[10px] uppercase tracking-widest px-2 py-0.5 ${STATUS_PILL_CLASS[topic.status]}`}
+          >
             {STATUS_LABEL[topic.status]}
           </span>
         </div>
         {topic.tagline && (
-          <p className="text-sm text-deep-brown/90 leading-snug mb-3">
+          <p
+            className={`text-sm leading-snug mb-3 ${
+              isStub ? 'text-deep-brown/60' : 'text-deep-brown/90'
+            }`}
+          >
             {topic.tagline}
           </p>
         )}
-        {updateLabel && (
+        {isStub && (
+          <p className="text-[11px] uppercase tracking-wider text-text-secondary/60 italic">
+            Territory marked · views not yet written
+          </p>
+        )}
+        {!isStub && updateLabel && (
           <p
             className={`text-[11px] uppercase tracking-wider ${
               stale ? 'text-text-secondary/50' : 'text-text-secondary'
