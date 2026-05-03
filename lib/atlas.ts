@@ -17,6 +17,13 @@ export interface Topic {
   region: Region;
   tagline: string;
   status: TopicStatus;
+  /**
+   * True when the page is a stub (placeholder content, views not yet
+   * written). Independent of `status` — a topic can be `developing`
+   * (actively being worked on) and still be a stub. Defaults to
+   * `status === 'exploring'` if the frontmatter doesn't say.
+   */
+  stub: boolean;
   order: number;
   lastReviewed?: string;
   lastSubstantiveUpdate?: string;
@@ -53,12 +60,20 @@ function readTopicFile(fullPath: string, slug: string): Topic | null {
 
   if (!data.region) return null;
 
+  const status = (data.status as TopicStatus) || 'exploring';
+  // Pages default to `stub: true` (placeholder content). The author opts
+  // in to "filled" treatment by setting `stub: false` once the page has
+  // real views written. This makes accidentally shipping placeholder
+  // content as if it were a position document much harder.
+  const stub = data.stub === false ? false : true;
+
   return {
     slug: data.slug || slug,
     title: data.title || slug,
     region: data.region as Region,
     tagline: data.tagline || '',
-    status: (data.status as TopicStatus) || 'exploring',
+    status,
+    stub,
     order: typeof data.order === 'number' ? data.order : 999,
     lastReviewed: data.last_reviewed
       ? String(data.last_reviewed)

@@ -12,8 +12,8 @@ interface RegionCardProps {
 
 export default function RegionCard({ region, topics, index }: RegionCardProps) {
   // Show filled topics first in the preview, then stubs — preserves order within each group.
-  const filled = topics.filter((t) => t.status !== 'exploring');
-  const stubs = topics.filter((t) => t.status === 'exploring');
+  const filled = topics.filter((t) => !t.stub);
+  const stubs = topics.filter((t) => t.stub);
   const previewTopics = [...filled, ...stubs].slice(0, 4);
   const remaining = Math.max(0, topics.length - previewTopics.length);
   const filledCount = filled.length;
@@ -46,7 +46,7 @@ export default function RegionCard({ region, topics, index }: RegionCardProps) {
           {previewTopics.length > 0 ? (
             <ul className="text-base space-y-1">
               {previewTopics.map((t) => {
-                const isStub = t.status === 'exploring';
+                const isStub = t.stub;
                 return (
                   <li
                     key={t.slug}
