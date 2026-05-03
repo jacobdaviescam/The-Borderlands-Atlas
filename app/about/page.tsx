@@ -16,7 +16,7 @@ export default function AboutPage() {
           className="space-y-6 text-deep-brown"
         >
           <p className="text-xl leading-relaxed">
-            This is a space for thinking through ideas at the edges of what I understand - where 
+            This is my space for thinking through ideas at the edges of what I understand - where 
             technical work meets broader questions about how technology shapes our world.
           </p>
 
@@ -27,17 +27,13 @@ export default function AboutPage() {
             <p className="leading-relaxed">
               My background is in NLP and ML. I studied how language 
               models generalise across domains at the Univeristy of Cambridge(BA) and the University of Edinburgh (MSc), built evaluation frameworks for AI systems 
-              at LinkedIn, and trained in technical AI safety (mechinterp, RL, evals) at ARENA. I have followed the trajectory of AI capabilities in research and industry and know that safety infrastructure isn't keeping pace.  
+              at LinkedIn, and trained in technical AI safety (mechinterp, RL, evals) at ARENA. I have followed the trajectory of AI capabilities in research and industry and know that safety infrastructure isn't keeping pace.
             </p>
             <p className="leading-relaxed mt-4">
-              I work on AI evaluation and safety research, but I try to think about AI deployment broadly as I think AI risk is just as likely to be subtle and gradual as sudden and obvious.
+              More recently, I did the ERA fellowship where I worked on two projects. Firstly, I worked on the governance mechanisms for Chain of Thought Monitorability and the potential for targeted transparency disclosures. Secondly, I worked on how models can have different linear representations for traits depending on the persona that they are role-playing as. I am now a technical governance research manager at ERA and a mentor for the MARS fellowship. Additionally, I have been doing some strategy consulting for the Centre for Long Term Resilience on their Loss of Control Observatory. 
             </p>
             <p className="leading-relaxed mt-4">
-              That means looking at the full landscape: technical safety work like evaluation frameworks 
-              and interpretability methods. Economic questions about business models and how advertising 
-              might distort training objectives. Developmental questions about how AI assistance affects 
-              skill acquisition and when tools help versus replace capability. Structural questions about 
-              regulatory approaches and how deployment patterns create winners and losers.
+              More generally, I try to look at the full landscape of AI safety work and the strategy for the space going forward. This includes thinking about the technical safety work and implications for governance but also the talent pipeline and the funding ecosystem.
             </p>
           </div>
 
@@ -52,7 +48,7 @@ export default function AboutPage() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-brass mt-1">•</span>
-                <span><strong>Mind Maps</strong> — Visual connections between concepts</span>
+                <span><strong>Atlas</strong> — My current takes on AI safety topics</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-brass mt-1">•</span>
