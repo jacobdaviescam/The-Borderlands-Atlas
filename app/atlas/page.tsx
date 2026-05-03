@@ -12,7 +12,7 @@ export default function AtlasPage() {
     >
       <div className="max-w-4xl mx-auto mb-12 text-center text-deep-brown/90 leading-relaxed">
         <p className="text-lg">
-          Each tile is a single living page — a topic in technical AI safety,
+          Each tile is a single living page on a topic in technical AI safety,
           AI governance, the technical-governance bridge between them, or the
           wider strategy of building the field and engaging the public. Pages
           carry current beliefs, open uncertainties, and concrete evidence

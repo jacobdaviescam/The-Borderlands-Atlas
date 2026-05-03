@@ -53,9 +53,7 @@ export default function Home() {
             className="max-w-2xl mx-auto space-y-6 text-lg text-deep-brown"
           >
             <p>
-              I&apos;m Jacob Davies. I work on AI safety, building monitoring infrastructure 
-              that defends against jailbreaks and accidental misalignment and ensures deployed AI systems remain safe 
-              and controllable.
+              I&apos;m Jacob Davies. I work on AI safety, from technical safety work to governance and strategy.
             
             </p>
             <p>
