@@ -4,6 +4,7 @@ slug: personas
 region: technical-safety
 tagline: The persona frame as a lens on LLM generalisation — what model specs and character training shape, and what falls out for probing and steering.
 status: developing
+stub: false
 order: 7
 last_reviewed: 2026-05-02
 last_substantive_update: 2026-05-02

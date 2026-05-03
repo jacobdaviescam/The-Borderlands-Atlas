@@ -18,11 +18,11 @@ export default async function RegionPage({ params }: RegionPageProps) {
     notFound();
   }
 
-  // Filled topics (developing/settled) first, stubs after — preserves
-  // intra-group order. Reviewers should hit real content before placeholders.
+  // Filled topics first, stubs after — preserves intra-group order.
+  // Reviewers should hit real content before placeholders.
   const topics = getTopicsByRegion(region.id);
-  const filled = topics.filter((t) => t.status !== 'exploring');
-  const stubs = topics.filter((t) => t.status === 'exploring');
+  const filled = topics.filter((t) => !t.stub);
+  const stubs = topics.filter((t) => t.stub);
 
   return (
     <PageLayout

@@ -4,6 +4,7 @@ slug: monitoring
 region: technical-safety
 tagline: Detecting bad cognition or bad action at deployment time — what chain-of-thought monitorability buys us today, and what replaces it as it degrades.
 status: developing
+stub: false
 order: 3
 last_reviewed: 2026-05-02
 last_substantive_update: 2026-05-02

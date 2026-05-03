@@ -15,13 +15,13 @@ export async function generateStaticParams() {
 }
 
 const STATUS_LABEL = {
-  exploring: 'Stub',
+  exploring: 'Exploring',
   developing: 'Developing',
   settled: 'Settled',
 } as const;
 
 const STATUS_PILL_CLASS = {
-  exploring: 'text-text-secondary/70 border border-dashed border-text-secondary/40',
+  exploring: 'text-text-secondary border border-text-secondary/40',
   developing: 'text-brass border border-brass/40',
   settled: 'text-forest border border-forest/40',
 } as const;
@@ -96,7 +96,7 @@ export default async function AtlasTopicPage({ params }: AtlasTopicPageProps) {
         </div>
 
         {/* Stub banner — only on placeholder pages */}
-        {topic.status === 'exploring' && (
+        {topic.stub && (
           <div className="mb-10 px-5 py-4 border border-dashed border-text-secondary/40 bg-parchment-dark/30">
             <p className="text-base text-deep-brown leading-relaxed">
               <span className="font-semibold text-burgundy">This page is a stub.</span>{' '}
