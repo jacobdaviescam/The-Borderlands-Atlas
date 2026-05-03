@@ -4,7 +4,11 @@ import matter from 'gray-matter';
 
 const atlasDirectory = path.join(process.cwd(), 'content/atlas');
 
-export type Region = 'technical-safety' | 'technical-governance' | 'governance';
+export type Region =
+  | 'technical-safety'
+  | 'technical-governance'
+  | 'governance'
+  | 'ai-safety-strategy';
 export type TopicStatus = 'exploring' | 'developing' | 'settled';
 
 export interface Topic {
@@ -35,6 +39,11 @@ export const REGIONS: { id: Region; label: string; description: string }[] = [
     id: 'governance',
     label: 'Governance',
     description: 'The policy',
+  },
+  {
+    id: 'ai-safety-strategy',
+    label: 'AI Safety Strategy',
+    description: 'The field & the public',
   },
 ];
 

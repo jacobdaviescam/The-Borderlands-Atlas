@@ -13,14 +13,15 @@ export default function AtlasPage() {
       <div className="max-w-4xl mx-auto mb-12 text-center text-deep-brown/90 leading-relaxed">
         <p className="text-lg">
           Each tile is a single living page — a topic in technical AI safety,
-          AI governance, or the technical-governance bridge between them.
-          Pages carry current beliefs, open uncertainties, and concrete
-          evidence types that would shift my views.
+          AI governance, the technical-governance bridge between them, or the
+          wider strategy of building the field and engaging the public. Pages
+          carry current beliefs, open uncertainties, and concrete evidence
+          types that would shift my views.
         </p>
       </div>
 
       {topics.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           {REGIONS.map((region) => {
             const regionTopics = topics.filter((t) => t.region === region.id);
             return (
