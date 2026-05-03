@@ -7,7 +7,7 @@ status: exploring
 order: 2
 last_reviewed: 2026-05-01
 last_substantive_update: 2026-05-01
-related: [monitoring, ai-control, steering-and-personas]
+related: [monitoring, ai-control, personas, steering]
 ---
 
 ## Where I currently stand
