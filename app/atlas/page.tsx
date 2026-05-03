@@ -8,11 +8,11 @@ export default function AtlasPage() {
   return (
     <PageLayout
       title="The Atlas"
-      subtitle="A living map of beliefs, uncertainties, and what would update them"
+      subtitle="A living map of my beliefs, uncertainties, and what would update them"
     >
       <div className="max-w-3xl mx-auto mb-12 text-center text-deep-brown/90 leading-relaxed space-y-4">
         <p className="text-lg">
-          Four regions: technical safety, technical governance, governance, and
+          Here there are four regions of my thoughts: technical safety, technical governance, governance, and
           the wider strategy of building the field. Each opens onto living-page
           topics where I record current beliefs, open uncertainties, and the
           evidence that would shift my views.

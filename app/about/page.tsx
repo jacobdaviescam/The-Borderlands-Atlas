@@ -16,8 +16,7 @@ export default function AboutPage() {
           className="space-y-6 text-deep-brown"
         >
           <p className="text-xl leading-relaxed">
-            This is my space for thinking through ideas at the edges of what I understand - where 
-            technical work meets broader questions about how technology shapes our world.
+            This is my space for thinking through ideas at the edges of what I understand. This space is ever changing and I have found that it is better to be open about my beliefs and uncertainties.
           </p>
 
           <div className="pt-8 mt-12 border-t border-gold/30">
@@ -27,7 +26,7 @@ export default function AboutPage() {
             <p className="leading-relaxed">
               My background is in NLP and ML. I studied how language 
               models generalise across domains at the Univeristy of Cambridge(BA) and the University of Edinburgh (MSc), built evaluation frameworks for AI systems 
-              at LinkedIn, and trained in technical AI safety (mechinterp, RL, evals) at ARENA. I have followed the trajectory of AI capabilities in research and industry and know that safety infrastructure isn't keeping pace.
+              at LinkedIn, and trained in technical AI safety (mechinterp, RL, evals) at ARENA.
             </p>
             <p className="leading-relaxed mt-4">
               More recently, I did the ERA fellowship where I worked on two projects. Firstly, I worked on the governance mechanisms for Chain of Thought Monitorability and the potential for targeted transparency disclosures. Secondly, I worked on how models can have different linear representations for traits depending on the persona that they are role-playing as. I am now a technical governance research manager at ERA and a mentor for the MARS fellowship. Additionally, I have been doing some strategy consulting for the Centre for Long Term Resilience on their Loss of Control Observatory. 
