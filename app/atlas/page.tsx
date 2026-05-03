@@ -1,5 +1,5 @@
 import PageLayout from '@/app/components/PageLayout';
-import TopicCard from '@/app/components/TopicCard';
+import RegionCard from '@/app/components/RegionCard';
 import { getAllTopics, REGIONS } from '@/lib/atlas';
 
 export default function AtlasPage() {
@@ -10,68 +10,35 @@ export default function AtlasPage() {
       title="The Atlas"
       subtitle="A living map of beliefs, uncertainties, and what would update them"
     >
-      <div className="max-w-4xl mx-auto mb-12 text-center text-deep-brown/90 leading-relaxed">
+      <div className="max-w-3xl mx-auto mb-12 text-center text-deep-brown/90 leading-relaxed space-y-4">
         <p className="text-lg">
-          Each tile is a single living page on a topic in technical AI safety,
-          AI governance, the technical-governance bridge between them, or the
-          wider strategy of building the field and engaging the public. Pages
-          carry current beliefs, open uncertainties, and concrete evidence
-          types that would shift my views.
+          Four regions: technical safety, technical governance, governance, and
+          the wider strategy of building the field. Each opens onto living-page
+          topics where I record current beliefs, open uncertainties, and the
+          evidence that would shift my views.
+        </p>
+        <p className="text-sm text-text-secondary italic">
+          Some pages are <span className="not-italic font-medium">Stubs</span> —
+          territory I&rsquo;ve marked but haven&rsquo;t yet written my views on.
+          They&rsquo;re shown in dashed borders and italic titles, sorted after
+          filled pages. Pages I have actual views on are marked{' '}
+          <span className="not-italic font-medium text-brass">Developing</span>.
         </p>
       </div>
 
-      {topics.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-          {REGIONS.map((region) => {
-            const regionTopics = topics.filter((t) => t.region === region.id);
-            return (
-              <section key={region.id} className="space-y-4">
-                <header className="text-center pb-3 border-b border-gold/30">
-                  <h2 className="text-xl font-semibold text-burgundy uppercase tracking-widest">
-                    {region.label}
-                  </h2>
-                  <p className="text-sm text-text-secondary italic mt-1">
-                    {region.description}
-                  </p>
-                </header>
-                <div className="space-y-4">
-                  {regionTopics.length > 0 ? (
-                    regionTopics.map((topic, idx) => (
-                      <TopicCard key={topic.slug} topic={topic} index={idx} />
-                    ))
-                  ) : (
-                    <p className="text-sm text-text-secondary italic text-center py-4">
-                      No topics yet.
-                    </p>
-                  )}
-                </div>
-              </section>
-            );
-          })}
-        </div>
-      ) : (
-        <div className="text-center py-16 text-text-secondary max-w-2xl mx-auto">
-          <svg
-            width="64"
-            height="64"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            className="mx-auto mb-6 text-brass"
-          >
-            <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-          </svg>
-          <p className="text-xl">
-            The Atlas is being charted.
-          </p>
-          <p className="mt-4 text-base">
-            Add topic markdown files to{' '}
-            <code className="bg-parchment-dark px-2 py-1 rounded">content/atlas/</code>
-            .
-          </p>
-        </div>
-      )}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {REGIONS.map((region, idx) => {
+          const regionTopics = topics.filter((t) => t.region === region.id);
+          return (
+            <RegionCard
+              key={region.id}
+              region={region}
+              topics={regionTopics}
+              index={idx}
+            />
+          );
+        })}
+      </div>
     </PageLayout>
   );
 }

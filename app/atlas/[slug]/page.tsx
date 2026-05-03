@@ -15,9 +15,15 @@ export async function generateStaticParams() {
 }
 
 const STATUS_LABEL = {
-  exploring: 'Exploring',
+  exploring: 'Stub',
   developing: 'Developing',
   settled: 'Settled',
+} as const;
+
+const STATUS_PILL_CLASS = {
+  exploring: 'text-text-secondary/70 border border-dashed border-text-secondary/40',
+  developing: 'text-brass border border-brass/40',
+  settled: 'text-forest border border-forest/40',
 } as const;
 
 function formatDate(date?: string): string | null {
@@ -59,7 +65,12 @@ export default async function AtlasTopicPage({ params }: AtlasTopicPageProps) {
   const lastUpdate = formatDate(topic.lastSubstantiveUpdate);
 
   return (
-    <PageLayout title={topic.title} subtitle={topic.tagline}>
+    <PageLayout
+      title={topic.title}
+      subtitle={topic.tagline}
+      backHref={region ? `/atlas/region/${region.id}` : '/atlas'}
+      backLabel={region ? region.label : 'The Atlas'}
+    >
       <article className="max-w-3xl mx-auto">
         {/* Meta strip */}
         <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-xs uppercase tracking-widest text-text-secondary mb-12">
@@ -67,7 +78,7 @@ export default async function AtlasTopicPage({ params }: AtlasTopicPageProps) {
             <span className="text-burgundy font-medium">{region.label}</span>
           )}
           <span className="text-gold/60">·</span>
-          <span className="text-brass border border-brass/40 px-2 py-0.5">
+          <span className={`px-2 py-0.5 ${STATUS_PILL_CLASS[topic.status]}`}>
             {STATUS_LABEL[topic.status]}
           </span>
           {lastReviewed && (
@@ -83,6 +94,19 @@ export default async function AtlasTopicPage({ params }: AtlasTopicPageProps) {
             </>
           )}
         </div>
+
+        {/* Stub banner — only on placeholder pages */}
+        {topic.status === 'exploring' && (
+          <div className="mb-10 px-5 py-4 border border-dashed border-text-secondary/40 bg-parchment-dark/30">
+            <p className="text-base text-deep-brown leading-relaxed">
+              <span className="font-semibold text-burgundy">This page is a stub.</span>{' '}
+              I&rsquo;ve marked the territory but haven&rsquo;t written my views here yet.
+              The headings below are placeholders — the actual beliefs, uncertainties,
+              and evidence are still in my notes. If you want my current take on this
+              topic before it lands here, get in touch.
+            </p>
+          </div>
+        )}
 
         {/* Body */}
         <TopicContent content={stripAutoSections(topic.content)} />
