@@ -18,11 +18,14 @@ export default function AtlasPage() {
           evidence that would shift my views.
         </p>
         <p className="text-sm text-text-secondary italic">
-          Some pages are <span className="not-italic font-medium">Stubs</span> —
-          territory I&rsquo;ve marked but haven&rsquo;t yet written my views on.
-          They&rsquo;re shown in dashed borders and italic titles, sorted after
-          filled pages. Pages I have actual views on are marked{' '}
-          <span className="not-italic font-medium text-brass">Developing</span>.
+          Pages with <span className="not-italic font-medium">dashed borders</span>{' '}
+          are stubs — territory marked, views not yet written. The status pill
+          on each tile (
+          <span className="not-italic">Exploring</span> ·{' '}
+          <span className="not-italic text-brass">Developing</span> ·{' '}
+          <span className="not-italic text-forest">Settled</span>
+          ) reflects where each topic is in my thinking, independent of whether
+          the page itself is filled in.
         </p>
       </div>
 

@@ -10,14 +10,13 @@ interface TopicCardProps {
 }
 
 const STATUS_LABEL: Record<Topic['status'], string> = {
-  exploring: 'Stub',
+  exploring: 'Exploring',
   developing: 'Developing',
   settled: 'Settled',
 };
 
 const STATUS_PILL_CLASS: Record<Topic['status'], string> = {
-  // Dashed border + muted text reads as "placeholder, not finished"
-  exploring: 'text-text-secondary/70 border border-dashed border-text-secondary/40',
+  exploring: 'text-text-secondary border border-text-secondary/40',
   developing: 'text-brass border border-brass/40',
   settled: 'text-forest border border-forest/40',
 };
@@ -44,7 +43,7 @@ function formatDate(date?: string): string | null {
 export default function TopicCard({ topic, index }: TopicCardProps) {
   const stale = isStale(topic.lastSubstantiveUpdate);
   const updateLabel = formatDate(topic.lastSubstantiveUpdate);
-  const isStub = topic.status === 'exploring';
+  const isStub = topic.stub;
 
   return (
     <motion.article
